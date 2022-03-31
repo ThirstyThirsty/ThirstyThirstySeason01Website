@@ -70,6 +70,10 @@ npm run dev
 npm run watch  # to compile assets and hot-reload as you work on them
 ```
 
+This will display the website if you go to [http://localhost](http://localhost).
+
+> If you're having issue with "port forwarding", make sure you don't have Apache or nginx running on your computer.
+
 For more details, refer to the [Sail](https://laravel.com/docs/9.x/sail) and [Mix](https://laravel.com/docs/9.x/mix) documentations.
 
 ### Using Vue
