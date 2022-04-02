@@ -17,7 +17,6 @@ sudo mv composer.phar /usr/local/bin/composer
 
 # Then in a new terminal window
 composer require laravel/sail --dev
-php artisan sail:install
 ```
 
 Clone the repository, change into it, then install the PHP and Node dependencies.
