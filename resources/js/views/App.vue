@@ -175,9 +175,9 @@ export default {
     },
 
     extractErrorMessage(error) {
-      const message = error.toString();
+      const message = error.data ? error.data.message : error.toString();
 
-      console.error(error);
+      console.error(message);
 
       if (message && message.toLowerCase().includes('not enough fund')) {
         return ERR_MSG_FUND
