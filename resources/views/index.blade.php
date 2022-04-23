@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ThirstyThirsty</title>
+        <title>Thirsty Thirsty</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://use.typekit.net/uxb4wzw.css">
