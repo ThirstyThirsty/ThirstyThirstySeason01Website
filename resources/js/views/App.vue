@@ -62,10 +62,41 @@ import Contract from '../../abi/ThirstyThirstySeason01.json'
 const TIER_CELLAR = 'cellar';
 const TIER_TABLE = 'table';
 const TIER_TABLE_GOLD = 'tableGold';
+const TIER_FRENS = 'frens';
 
 const ERR_MSG_FUND = 'You have insufficient fund to mint';
 const ERR_MSG_MINT = "Seems like you've already minted the maximum number per wallet";
 const ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...';
+
+const getEnv = () => {
+  const url = window.location.hostname
+  if (url.includes('staging.herokuapp.com')) return 'staging'
+  if (['thirstythirsty.herokuapp.com/' || 'thirstythirsty.xyz'].includes(url)) {
+    return 'production'
+  }
+  return 'development'
+}
+
+const addr = {
+  'development': {
+    [TIER_CELLAR]: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+    [TIER_TABLE]: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512',
+    [TIER_TABLE_GOLD]: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0',
+    [TIER_FRENS]: '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9'
+  },
+  'staging': {
+    [TIER_CELLAR]: '0x2011bDd9de56e3ad9b730948e4179df474eeE37E',
+    [TIER_TABLE]: '0xc6C643944519350F2b13365C17210118E7087E2a',
+    [TIER_TABLE_GOLD]: '0xcBcf0BdA4b151bf86912f6534f958901D130486b',
+    [TIER_FRENS]: '0x4209948b3B1f0ce21E0dcCFaAcF4ABA3E2B913F6'
+  },
+  'production': {
+    [TIER_CELLAR]: '',
+    [TIER_TABLE]: '',
+    [TIER_TABLE_GOLD]: '',
+    [TIER_FRENS]: ''
+  }
+}
 
 export default {
   name: 'App',
@@ -76,9 +107,9 @@ export default {
       isWalletConnected: false,
       canMint: true,
       addresses: {
-        [TIER_CELLAR]: '0x5FbDB2315678afecb367f032d93F642f64180aa3'.toLowerCase(),
-        [TIER_TABLE]: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'.toLowerCase(),
-        [TIER_TABLE_GOLD]: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0'.toLowerCase(),
+        [TIER_CELLAR]: addr[getEnv()][TIER_CELLAR].toLowerCase(),
+        [TIER_TABLE]: addr[getEnv()][TIER_TABLE].toLowerCase(),
+        [TIER_TABLE_GOLD]: addr[getEnv()][TIER_TABLE_GOLD].toLowerCase(),
       },
       contracts: {
         [TIER_CELLAR]: null,
@@ -144,7 +175,10 @@ export default {
     },
 
     extractErrorMessage(error) {
-      const { data: { message } } = error;
+      const message = error.toString();
+
+      console.error(error);
+
       if (message && message.toLowerCase().includes('not enough fund')) {
         return ERR_MSG_FUND
       };

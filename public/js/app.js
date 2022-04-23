@@ -27012,6 +27012,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ethers */ "./node_modules/@ethersproject/contracts/lib.esm/index.js");
 /* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ethers */ "./node_modules/@ethersproject/units/lib.esm/index.js");
 /* harmony import */ var _abi_ThirstyThirstySeason01_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../abi/ThirstyThirstySeason01.json */ "./resources/abi/ThirstyThirstySeason01.json");
+var _development, _staging, _production;
+
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -27082,9 +27084,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var TIER_CELLAR = 'cellar';
 var TIER_TABLE = 'table';
 var TIER_TABLE_GOLD = 'tableGold';
+var TIER_FRENS = 'frens';
 var ERR_MSG_FUND = 'You have insufficient fund to mint';
 var ERR_MSG_MINT = "Seems like you've already minted the maximum number per wallet";
 var ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...';
+
+var getEnv = function getEnv() {
+  var url = window.location.hostname;
+  if (url.includes('staging.herokuapp.com')) return 'staging';
+
+  if (['thirstythirsty.herokuapp.com/' || 0].includes(url)) {
+    return 'production';
+  }
+
+  return 'development';
+};
+
+var addr = {
+  'development': (_development = {}, _defineProperty(_development, TIER_CELLAR, '0x5FbDB2315678afecb367f032d93F642f64180aa3'), _defineProperty(_development, TIER_TABLE, '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'), _defineProperty(_development, TIER_TABLE_GOLD, '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0'), _defineProperty(_development, TIER_FRENS, '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9'), _development),
+  'staging': (_staging = {}, _defineProperty(_staging, TIER_CELLAR, '0x2011bDd9de56e3ad9b730948e4179df474eeE37E'), _defineProperty(_staging, TIER_TABLE, '0xc6C643944519350F2b13365C17210118E7087E2a'), _defineProperty(_staging, TIER_TABLE_GOLD, '0xcBcf0BdA4b151bf86912f6534f958901D130486b'), _defineProperty(_staging, TIER_FRENS, '0x4209948b3B1f0ce21E0dcCFaAcF4ABA3E2B913F6'), _staging),
+  'production': (_production = {}, _defineProperty(_production, TIER_CELLAR, ''), _defineProperty(_production, TIER_TABLE, ''), _defineProperty(_production, TIER_TABLE_GOLD, ''), _defineProperty(_production, TIER_FRENS, ''), _production)
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'App',
   data: function data() {
@@ -27094,7 +27114,7 @@ var ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...
       provider: null,
       isWalletConnected: false,
       canMint: true,
-      addresses: (_addresses = {}, _defineProperty(_addresses, TIER_CELLAR, '0x5FbDB2315678afecb367f032d93F642f64180aa3'.toLowerCase()), _defineProperty(_addresses, TIER_TABLE, '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'.toLowerCase()), _defineProperty(_addresses, TIER_TABLE_GOLD, '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0'.toLowerCase()), _addresses),
+      addresses: (_addresses = {}, _defineProperty(_addresses, TIER_CELLAR, addr[getEnv()][TIER_CELLAR].toLowerCase()), _defineProperty(_addresses, TIER_TABLE, addr[getEnv()][TIER_TABLE].toLowerCase()), _defineProperty(_addresses, TIER_TABLE_GOLD, addr[getEnv()][TIER_TABLE_GOLD].toLowerCase()), _addresses),
       contracts: (_contracts = {}, _defineProperty(_contracts, TIER_CELLAR, null), _defineProperty(_contracts, TIER_TABLE, null), _defineProperty(_contracts, TIER_TABLE_GOLD, null), _contracts),
       prices: (_prices = {}, _defineProperty(_prices, TIER_CELLAR, 0.3), _defineProperty(_prices, TIER_TABLE, 0.17), _defineProperty(_prices, TIER_TABLE_GOLD, 0.07), _prices)
     };
@@ -27258,7 +27278,8 @@ var ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...
       }))();
     },
     extractErrorMessage: function extractErrorMessage(error) {
-      var message = error.data.message;
+      var message = error.toString();
+      console.error(error);
 
       if (message && message.toLowerCase().includes('not enough fund')) {
         return ERR_MSG_FUND;
