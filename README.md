@@ -125,7 +125,7 @@ The "Table" tier's goldlist verification is based on a Merkle Tree (read full ex
 The implementation on the minting site is straightforward:
 
 - The Merkle root for the goldlist Merkle tree is stored as an environment variable (`MERKLE_ROOT`).
-- Upon connecting (or when connected user lands) on the mint page, the wallet's public address is sent to the `api/check` endpoint of the API. In the return payload, the value of field `gold` is `true` or `false` depending on whether the address is in the list or not.
+- Upon connecting (or when connected user lands) on the mint page, the wallet's public address is sent to the `api/list` endpoint of the API. In the return payload, the value of field `goldlisted` is `true` or `false` depending on whether the address is in the list or not.
 - The UI renders accordingly.
 
 ### Deployment

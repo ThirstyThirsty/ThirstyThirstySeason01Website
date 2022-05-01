@@ -16,14 +16,11 @@
       </a>
     </div>
 
-    <div class="content-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <template v-if="!isWalletConnected">
-        <h1 class="display-4">Minting Page</h1>
-        <p class="lead">Please connect your MetaMask to show enable minting.</p>
-      </template>
-      <template v-else>
-        <h1 class="display-4">Minting Page</h1>
-        <main class="lead">
+    <div class="content-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" >
+      <h1 class="display-4">Minting Page</h1>
+      <template v-if="isReady">
+        <p class="lead" v-if="!isWalletConnected">Please connect your MetaMask to show enable minting.</p>
+        <main class="lead" v-else>
           <p>
             <a
               class="btn btn-primary"
@@ -41,9 +38,10 @@
               href="#"
               :class="{ disabled: !canMint }"
               :disabled="!canMint"
-              @click.prevent="mint('table')"
+              @click.prevent="isGoldlisted ? mint(TIER_TABLE_GOLD) : mint(TIER_TABLE)"
             >
-              Mint <strong>Table</strong> Tier NFT
+              <span v-if="isGoldlisted">Mint <strong>Table (Goldlist)</strong> Tier NFT</span>
+              <span v-else>Mint <strong>Table</strong> Tier NFT</span>
             </a>
           </p>
         </main>
@@ -58,6 +56,10 @@
 <script>
 import * as ethers from 'ethers';
 import Contract from '../../abi/ThirstyThirstySeason01.json'
+import axios from 'axios'
+
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.baseURL = '/api/';
 
 const TIER_CELLAR = 'cellar';
 const TIER_TABLE = 'table';
@@ -66,6 +68,7 @@ const TIER_FRENS = 'frens';
 
 const ERR_MSG_FUND = 'You have insufficient fund to mint';
 const ERR_MSG_MINT = "Seems like you've already minted the maximum number per wallet";
+const ERR_MSG_CLAIMED = "Seems like you've already minted your goldlisted NFT... Try another Tier!";
 const ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...';
 
 const getEnv = () => {
@@ -105,7 +108,13 @@ export default {
     return {
       provider: null,
       isWalletConnected: false,
+      isGoldlisted: false,
+      isReady: false,
       canMint: true,
+      TIER_CELLAR,
+      TIER_TABLE,
+      TIER_TABLE_GOLD,
+      TIER_FRENS,
       addresses: {
         [TIER_CELLAR]: addr[getEnv()][TIER_CELLAR].toLowerCase(),
         [TIER_TABLE]: addr[getEnv()][TIER_TABLE].toLowerCase(),
@@ -128,12 +137,27 @@ export default {
     this.provider = new ethers.providers.Web3Provider(ethereum, 'any');
     const signer = this.provider.getSigner();
     this.isWalletConnected = this.isWalletConnected || await this.checkMetaMaskConnected();
+
     this.contracts[TIER_CELLAR] = new ethers.Contract(this.addresses[TIER_CELLAR], Contract.abi, signer);
     this.contracts[TIER_TABLE] = new ethers.Contract(this.addresses[TIER_TABLE], Contract.abi, signer);
     this.contracts[TIER_TABLE_GOLD] = new ethers.Contract(this.addresses[TIER_TABLE_GOLD], Contract.abi, signer);
+
+    const pkey = await signer.getAddress();
+    this.isGoldlisted = await this.checkGoldlisted(pkey);
+    this.isReady = true;
   },
 
   methods: {
+    async checkGoldlisted(pkey) {
+      try {
+        const { data: { goldlisted } } = await axios.get(`list/${pkey}`);
+        return goldlisted;
+      } catch (err) {
+        console.error(err);
+      }
+      return false;
+    },
+
     async connectWallet() {
       if (this.isWalletConnected) return;
 
@@ -157,12 +181,18 @@ export default {
         if ([TIER_CELLAR, TIER_TABLE].includes(tierName)) {
           tx = await this.contracts[tierName].mint({ value: price });
         }
-        await tx.wait();
 
-        console.log((await this.contracts[tierName].numOfMints()).toString());
-      // if (tierName === TIER_TABLE_GOLD) {
-      //   tx = await this.container[tierName].mintGold(merkleHexProof, { value: price })
-      // }
+        if (tierName === TIER_TABLE_GOLD) {
+          const pkey = await this.provider.getSigner().getAddress();
+          const { data: { proof } } = await axios.get(`proof/${pkey}`);
+          tx = await this.contracts[tierName].mintGold(proof, { value: price })
+        }
+
+        const res = await tx.wait();
+        console.log(res)
+
+        const mints = await this.contracts[tierName].numOfMints()
+        alert(mints + ' mints on this specific contract (' + tierName + ')');
       } catch (err) {
         const message = this.extractErrorMessage(err);
         alert(message);
@@ -181,10 +211,14 @@ export default {
 
       if (message && message.toLowerCase().includes('not enough fund')) {
         return ERR_MSG_FUND
-      };
+      }
       if (message && message.toLowerCase().includes('no more mint for user')) {
         this.canMint = false;
         return ERR_MSG_MINT;
+      }
+      if (message && message.toLowerCase().includes('address has already claimed')) {
+        this.isGoldlisted = false;
+        return ERR_MSG_CLAIMED;
       }
       return ERR_MSG_UNKNOWN;
     }

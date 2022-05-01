@@ -21,7 +21,11 @@
 import Route from '@ioc:Adonis/Core/Route'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-// A typical route handler
+Route.group(() => {
+  Route.get('/list/:pkey', 'SmartContractsController.checkGoldList')
+  Route.get('/proof/:pkey', 'SmartContractsController.getHexProof')
+}).prefix('/api')
+
 Route.get('/', async ({ view }: HttpContextContract) => {
   return view.render('index')
 }).as('index')
