@@ -22,6 +22,9 @@ import Route from '@ioc:Adonis/Core/Route'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 Route.group(() => {
+  Route.get('/health', () => {
+    return 'OK'
+  })
   Route.get('/list/:pkey', 'SmartContractsController.checkGoldList')
   Route.get('/proof/:pkey', 'SmartContractsController.getHexProof')
 }).prefix('/api')

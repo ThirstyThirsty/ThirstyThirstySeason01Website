@@ -17,9 +17,9 @@
     </div>
 
     <div class="content-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" >
-      <h1 class="display-4">Minting Page</h1>
+      <h1 class="display-4">{ Minting Page }</h1>
       <template v-if="isReady">
-        <p class="lead" v-if="!isWalletConnected">Please connect your MetaMask to show enable minting.</p>
+        <p class="lead" v-if="!isWalletConnected">Please connect your MetaMask to enable minting.</p>
         <main class="lead" v-else>
           <p>
             <a

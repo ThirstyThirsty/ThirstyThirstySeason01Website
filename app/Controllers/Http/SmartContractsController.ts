@@ -14,7 +14,7 @@ export default class SmartContractsController {
     const whitelistAddresses = goldListEnv.split(',')
     const goldlisted = whitelistAddresses.includes(pkey)
 
-    response.send({ goldlisted })
+    response.send({ goldlisted, pkey, whitelistAddresses })
   }
 
   public async getHexProof({ params, response }: HttpContextContract) {
