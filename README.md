@@ -1,6 +1,6 @@
-# ThirstyThirsty Season 01 NFT
+# ThirstyThirsty Season 01 NFT - Minting Website
 
-This is the landing page and minting website for TT's season 1 NFTs.
+This is the minting website for TT's season 1 NFTs. To be used in conjunction with the accompanying [smart contracts](https://github.com/ThirstyThirsty/ThirstyThirstySeason01NFTs).
 
 ## Installation
 
@@ -54,6 +54,37 @@ One your should be good to go.
 
 ## Usage
 
+### Synopsis
+
+> How many different tier and artworks are we planning to use, and how are they dispatched among NFTs?
+
+There are 3 NFT tiers with different pricing, with the same artwork in 3 different colors to distinguish each other.
+
+- **Tier 1 “Cellar”** - `270 units at $1,000 each` (ETH price TBD)
+
+- **Tier 2 “Table”** - `518 units`, including:
+
+  - Normal (mintable by anyone) - `418 units at $500 each` (ETH price TBD)
+
+  - "Goldlist" (using a Merkle tree) for our Discord members - `100 at $200 each` (ETH price TBD)
+
+- **Tier 3 “Frens & Fam”** - `50 units, free (airdropped)`
+
+For the purpose of this collection, the same smart contract is deployed into 4 different instances:
+https://github.com/ThirstyThirsty/ThirstyThirstySeason01NFTs
+- one for the "Cellar" tier;
+- one for the "Table" tier;
+- one for the "Table" tier on a goldlist (at cheaper minting price);
+- one for the "Friends & Fam" tier (airdropped).
+
+This web application will provide a UI enabling minting the proper contract with the following behavior:
+
+- Show and manage connection using MetaMask with a dedicated button.
+- Show **Mint** buttons for targeting "Cellar" and "Table" contracts by default.
+- Swap the "Table" for a special "Goldlist Table" **Mint** button targeting the relevant contract, if current connected address is in the Goldlist.
+- Show a disabled mint button (with an updated indicative label) when NFTs of the linked contract have all been minted.
+- Hide mint buttons and inform user instead when she has already minted the max number of NFTs per user (**set at 6 units**).
+
 ### Running in development mode
 
 You run the application in development mode using Sail and Mix commands in the console.
@@ -69,13 +100,13 @@ npm run dev
 npm run watch  # to compile assets and hot-reload as you work on them
 ```
 
-This will display the website if you go to [http://localhost](http://localhost).
+This will display the website on [http://localhost](http://localhost).
 
 > If you're having issue with "port forwarding", make sure you don't have Apache or nginx running on your computer.
 
 For more details, refer to the [Sail](https://laravel.com/docs/9.x/sail) and [Mix](https://laravel.com/docs/9.x/mix) documentations.
 
-### Using Vue
+### Developing Vue components
 
 The current setup already makes use of Vue. To create a single-page component, you need to:
 
@@ -86,6 +117,24 @@ The current setup already makes use of Vue. To create a single-page component, y
 You'll also want to look at the `resources/views/index.blade.php` page. Line 25, there's a direct mention of the `ExampleComponent`. Any Vue component you put within the `div#app` node will be parsed.
 
 > For better control over your code, I suggest you minimize the amount of components you put there, organizing your component tree into a hierarchy of subcomponents.
+
+### Goldist
+
+The "Table" tier's goldlist verification is based on a Merkle Tree (read full explanations in the [smart contracts repo](https://github.com/ThirstyThirsty/ThirstyThirstySeason01NFTs)).
+
+The implementation on the minting site is straightforward:
+
+- The Merkle root for the goldlist Merkle tree is stored as an environment variable (`MERKLE_ROOT`).
+- Upon connecting (or when connected user lands) on the mint page, the wallet's public address is sent to the `api/check` endpoint of the API. In the return payload, the value of field `gold` is `true` or `false` depending on whether the address is in the list or not.
+- The UI renders accordingly.
+
+### Deployment
+
+The current application is hosted on Heroku, with a staging and a production instance. Get in touch with **[@dheavy](https://github.com/dheavy)** for details.
+
+**Staging** - [https://thirstythirsty-nft-staging.herokuapp.com/](https://thirstythirsty-nft-staging.herokuapp.com/)
+
+**Production** - [https://thirstythirsty-nft.herokuapp.com/](https://thirstythirsty-nft-staging.herokuapp.com/)
 
 ## Contributing
 Please use pull requests to submit your progress.
