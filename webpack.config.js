@@ -147,6 +147,8 @@ Encore.configureDevServerOptions((options) => {
   })
 })
 
+Encore.enableVueLoader()
+
 /*
 |--------------------------------------------------------------------------
 | CSS precompilers support
