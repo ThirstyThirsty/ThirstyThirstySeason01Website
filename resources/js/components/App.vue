@@ -17,7 +17,7 @@
     </div>
 
     <div class="content-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" >
-      <h1 class="display-4">{ Minting Page }</h1>
+      <h1 class="display-4">Minting Page</h1>
       <template v-if="isReady">
         <p class="lead" v-if="!isWalletConnected">Please connect your MetaMask to enable minting.</p>
         <main class="lead" v-else>
@@ -106,6 +106,7 @@ export default {
 
   data() {
     return {
+      signer: null,
       provider: null,
       isWalletConnected: false,
       isGoldlisted: false,
@@ -135,25 +136,26 @@ export default {
 
   async mounted() {
     this.provider = new ethers.providers.Web3Provider(ethereum, 'any');
-    const signer = this.provider.getSigner();
+    this.signer = this.provider.getSigner();
+
     this.isWalletConnected = this.isWalletConnected || await this.checkMetaMaskConnected();
 
-    this.contracts[TIER_CELLAR] = new ethers.Contract(this.addresses[TIER_CELLAR], Contract.abi, signer);
-    this.contracts[TIER_TABLE] = new ethers.Contract(this.addresses[TIER_TABLE], Contract.abi, signer);
-    this.contracts[TIER_TABLE_GOLD] = new ethers.Contract(this.addresses[TIER_TABLE_GOLD], Contract.abi, signer);
+    this.contracts[TIER_CELLAR] = new ethers.Contract(this.addresses[TIER_CELLAR], Contract.abi, this.signer);
+    this.contracts[TIER_TABLE] = new ethers.Contract(this.addresses[TIER_TABLE], Contract.abi, this.signer);
+    this.contracts[TIER_TABLE_GOLD] = new ethers.Contract(this.addresses[TIER_TABLE_GOLD], Contract.abi, this.signer);
 
-    const pkey = await signer.getAddress();
-    this.isGoldlisted = await this.checkGoldlisted(pkey);
+    await this.checkGoldlisted();
     this.isReady = true;
   },
 
   methods: {
-    async checkGoldlisted(pkey) {
+    async checkGoldlisted() {
       try {
+        const pkey = await this.signer.getAddress();
         const { data: { goldlisted } } = await axios.get(`list/${pkey}`);
-        return goldlisted;
+        this.isGoldlisted = goldlisted;
       } catch (err) {
-        console.error(err);
+        // Metamask not connected
       }
       return false;
     },
@@ -169,6 +171,8 @@ export default {
       await this.provider.send('eth_requestAccounts', []);
 
       this.isWalletConnected = true;
+
+      await this.checkGoldlisted();
     },
 
     async mint(tierName) {

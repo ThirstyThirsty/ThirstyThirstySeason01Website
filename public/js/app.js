@@ -41461,6 +41461,7 @@ var addr = {
     var _addresses, _contracts, _prices;
 
     return {
+      signer: null,
       provider: null,
       isWalletConnected: false,
       isGoldlisted: false,
@@ -41479,13 +41480,12 @@ var addr = {
     var _this = this;
 
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var signer, pkey;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _this.provider = new ethers__WEBPACK_IMPORTED_MODULE_3__.Web3Provider(ethereum, 'any');
-              signer = _this.provider.getSigner();
+              _this.signer = _this.provider.getSigner();
               _context.t0 = _this.isWalletConnected;
 
               if (_context.t0) {
@@ -41501,22 +41501,16 @@ var addr = {
 
             case 7:
               _this.isWalletConnected = _context.t0;
-              _this.contracts[TIER_CELLAR] = new ethers__WEBPACK_IMPORTED_MODULE_4__.Contract(_this.addresses[TIER_CELLAR], _abi_ThirstyThirstySeason01_json__WEBPACK_IMPORTED_MODULE_1__.abi, signer);
-              _this.contracts[TIER_TABLE] = new ethers__WEBPACK_IMPORTED_MODULE_4__.Contract(_this.addresses[TIER_TABLE], _abi_ThirstyThirstySeason01_json__WEBPACK_IMPORTED_MODULE_1__.abi, signer);
-              _this.contracts[TIER_TABLE_GOLD] = new ethers__WEBPACK_IMPORTED_MODULE_4__.Contract(_this.addresses[TIER_TABLE_GOLD], _abi_ThirstyThirstySeason01_json__WEBPACK_IMPORTED_MODULE_1__.abi, signer);
+              _this.contracts[TIER_CELLAR] = new ethers__WEBPACK_IMPORTED_MODULE_4__.Contract(_this.addresses[TIER_CELLAR], _abi_ThirstyThirstySeason01_json__WEBPACK_IMPORTED_MODULE_1__.abi, _this.signer);
+              _this.contracts[TIER_TABLE] = new ethers__WEBPACK_IMPORTED_MODULE_4__.Contract(_this.addresses[TIER_TABLE], _abi_ThirstyThirstySeason01_json__WEBPACK_IMPORTED_MODULE_1__.abi, _this.signer);
+              _this.contracts[TIER_TABLE_GOLD] = new ethers__WEBPACK_IMPORTED_MODULE_4__.Contract(_this.addresses[TIER_TABLE_GOLD], _abi_ThirstyThirstySeason01_json__WEBPACK_IMPORTED_MODULE_1__.abi, _this.signer);
               _context.next = 13;
-              return signer.getAddress();
+              return _this.checkGoldlisted();
 
             case 13:
-              pkey = _context.sent;
-              _context.next = 16;
-              return _this.checkGoldlisted(pkey);
-
-            case 16:
-              _this.isGoldlisted = _context.sent;
               _this.isReady = true;
 
-            case 18:
+            case 14:
             case "end":
               return _context.stop();
           }
@@ -41525,9 +41519,11 @@ var addr = {
     }))();
   },
   methods: {
-    checkGoldlisted: function checkGoldlisted(pkey) {
+    checkGoldlisted: function checkGoldlisted() {
+      var _this2 = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        var _yield$axios$get, goldlisted;
+        var pkey, _yield$axios$get, goldlisted;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
@@ -41535,31 +41531,37 @@ var addr = {
               case 0:
                 _context2.prev = 0;
                 _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("list/".concat(pkey));
+                return _this2.signer.getAddress();
 
               case 3:
+                pkey = _context2.sent;
+                _context2.next = 6;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default().get("list/".concat(pkey));
+
+              case 6:
                 _yield$axios$get = _context2.sent;
                 goldlisted = _yield$axios$get.data.goldlisted;
-                return _context2.abrupt("return", goldlisted);
-
-              case 8:
-                _context2.prev = 8;
-                _context2.t0 = _context2["catch"](0);
-                console.error(_context2.t0);
+                _this2.isGoldlisted = goldlisted;
+                _context2.next = 13;
+                break;
 
               case 11:
+                _context2.prev = 11;
+                _context2.t0 = _context2["catch"](0);
+
+              case 13:
                 return _context2.abrupt("return", false);
 
-              case 12:
+              case 14:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 8]]);
+        }, _callee2, null, [[0, 11]]);
       }))();
     },
     connectWallet: function connectWallet() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
         var _window, ethereum;
@@ -41568,7 +41570,7 @@ var addr = {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                if (!_this2.isWalletConnected) {
+                if (!_this3.isWalletConnected) {
                   _context3.next = 2;
                   break;
                 }
@@ -41583,12 +41585,14 @@ var addr = {
                 }
 
                 _context3.next = 6;
-                return _this2.provider.send('eth_requestAccounts', []);
+                return _this3.provider.send('eth_requestAccounts', []);
 
               case 6:
-                _this2.isWalletConnected = true;
+                _this3.isWalletConnected = true;
+                _context3.next = 9;
+                return _this3.checkGoldlisted();
 
-              case 7:
+              case 9:
               case "end":
                 return _context3.stop();
             }
@@ -41597,7 +41601,7 @@ var addr = {
       }))();
     },
     mint: function mint(tierName) {
-      var _this3 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
         var price, tx, pkey, _yield$axios$get2, proof, res, mints, message;
@@ -41607,7 +41611,7 @@ var addr = {
             switch (_context4.prev = _context4.next) {
               case 0:
                 console.log("Attempting to mint tier \"".concat(tierName, "\""));
-                price = ethers__WEBPACK_IMPORTED_MODULE_5__.parseUnits(_this3.prices[tierName].toString(), 'ether');
+                price = ethers__WEBPACK_IMPORTED_MODULE_5__.parseUnits(_this4.prices[tierName].toString(), 'ether');
                 _context4.prev = 2;
 
                 if (![TIER_CELLAR, TIER_TABLE].includes(tierName)) {
@@ -41616,7 +41620,7 @@ var addr = {
                 }
 
                 _context4.next = 6;
-                return _this3.contracts[tierName].mint({
+                return _this4.contracts[tierName].mint({
                   value: price
                 });
 
@@ -41630,7 +41634,7 @@ var addr = {
                 }
 
                 _context4.next = 10;
-                return _this3.provider.getSigner().getAddress();
+                return _this4.provider.getSigner().getAddress();
 
               case 10:
                 pkey = _context4.sent;
@@ -41641,7 +41645,7 @@ var addr = {
                 _yield$axios$get2 = _context4.sent;
                 proof = _yield$axios$get2.data.proof;
                 _context4.next = 17;
-                return _this3.contracts[tierName].mintGold(proof, {
+                return _this4.contracts[tierName].mintGold(proof, {
                   value: price
                 });
 
@@ -41656,7 +41660,7 @@ var addr = {
                 res = _context4.sent;
                 console.log(res);
                 _context4.next = 24;
-                return _this3.contracts[tierName].numOfMints();
+                return _this4.contracts[tierName].numOfMints();
 
               case 24:
                 mints = _context4.sent;
@@ -41667,7 +41671,7 @@ var addr = {
               case 28:
                 _context4.prev = 28;
                 _context4.t0 = _context4["catch"](2);
-                message = _this3.extractErrorMessage(_context4.t0);
+                message = _this4.extractErrorMessage(_context4.t0);
                 alert(message);
 
               case 32:
@@ -41679,7 +41683,7 @@ var addr = {
       }))();
     },
     checkMetaMaskConnected: function checkMetaMaskConnected() {
-      var _this4 = this;
+      var _this5 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
         var accounts;
@@ -41688,7 +41692,7 @@ var addr = {
             switch (_context5.prev = _context5.next) {
               case 0:
                 _context5.next = 2;
-                return _this4.provider.listAccounts();
+                return _this5.provider.listAccounts();
 
               case 2:
                 accounts = _context5.sent;
@@ -41762,7 +41766,7 @@ var _hoisted_4 = {
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "display-4"
-}, "{ Minting Page }", -1
+}, "Minting Page", -1
 /* HOISTED */
 );
 
