@@ -8,13 +8,11 @@ export default class SmartContractsController {
   public async checkGoldList({ params, response }: HttpContextContract) {
     const pkey = params.pkey
 
-    console.log(pkey)
-
     const goldListEnv = Env.get('GOLDLIST', '')
     const whitelistAddresses = goldListEnv.split(',')
     const goldlisted = whitelistAddresses.includes(pkey)
 
-    response.send({ goldlisted, pkey, whitelistAddresses })
+    response.send({ goldlisted })
   }
 
   public async getHexProof({ params, response }: HttpContextContract) {
