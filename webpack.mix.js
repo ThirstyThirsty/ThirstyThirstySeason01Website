@@ -21,11 +21,11 @@ mix
       alias: {
         '@': path.resolve(__dirname, 'resources/js'),
         '~': path.resolve(__dirname, 'resources/js'),
-        'l': path.resolve(__dirname, 'resources/assets/scss'),
+        '~@': path.resolve(__dirname, 'resources/css'),
       },
     },
   })
-  .sass('resources/assets/scss/app.scss', path.resolve(__dirname, 'public/css'))
+  .postCss('resources/css/app.css', path.resolve(__dirname, 'public/css'))
   // .copy('resources/assets/images/', 'public/images/', false)
   .options({
     processCssUrls: false,
