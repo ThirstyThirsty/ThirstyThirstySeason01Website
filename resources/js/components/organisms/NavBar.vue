@@ -27,7 +27,7 @@ import { ChevronDownIcon } from '@heroicons/vue/solid';
 const menuItems = [
   {
     name: 'NFT Tier Breakdown',
-    href: '#tier-breakdown',
+    href: '/#tier-breakdown',
     description: 'NFT Tier Breakdown',
     icon: ChartBarIcon,
   },

@@ -11,5 +11,8 @@ module.exports = {
         serif: ['freight-text-pro', ...defaultTheme.fontFamily.serif],
       }
     }
-  }
+  },
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }

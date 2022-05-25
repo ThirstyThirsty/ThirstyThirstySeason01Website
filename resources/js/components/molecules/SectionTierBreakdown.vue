@@ -36,7 +36,7 @@ const tier2 = [
         </div>
       </div>
     </div>
-    <div class="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
+    <div class="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-0">
       <div class="relative">
         <div class="absolute inset-0 h-4/5 bg-gray-100" />
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
