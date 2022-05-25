@@ -176,7 +176,7 @@ Encore.enableVueLoader()
 |
 */
 Encore.enablePostCssLoader()
-Encore.configureCssLoader(() => {})
+// Encore.configureCssLoader(() => {})
 
 /*
 |--------------------------------------------------------------------------

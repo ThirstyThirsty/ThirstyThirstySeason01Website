@@ -26,7 +26,7 @@ mix
     },
   })
   .postCss('resources/css/app.css', path.resolve(__dirname, 'public/css'))
-  // .copy('resources/assets/images/', 'public/images/', false)
+  .copy('resources/images/', 'public/images/', false)
   .options({
     processCssUrls: false,
   })

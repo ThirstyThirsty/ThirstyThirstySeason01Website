@@ -12,12 +12,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Loading'
-}
-</script>
-
 <style>
 .a-square-spinner {
   margin: 1em auto;
