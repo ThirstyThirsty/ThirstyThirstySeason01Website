@@ -1,5 +1,6 @@
 <script setup>
 import { CheckCircleIcon } from '@heroicons/vue/solid';
+import Button from '../atoms/Button'
 
 const { terms, benefits } = defineProps({
   benefits: {
@@ -50,9 +51,7 @@ const { terms, benefits } = defineProps({
         <a :href="terms" class="font-medium text-gray-500 underline"> Learn about our Terms and Conditions </a>
       </p>
       <div class="mt-6">
-        <div class="rounded-md shadow">
-          <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"> Mint </a>
-        </div>
+        <Button href="#" small> Mint </Button>
       </div>
     </div>
   </div>

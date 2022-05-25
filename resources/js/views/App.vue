@@ -4,5 +4,5 @@ import NavBar from '../components/organisms/NavBar';
 
 <template>
   <NavBar />
-  <router-view></router-view>
+  <RouterView />
 </template>

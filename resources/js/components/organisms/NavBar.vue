@@ -27,7 +27,7 @@ import { ChevronDownIcon } from '@heroicons/vue/solid';
 const menuItems = [
   {
     name: 'NFT Tier Breakdown',
-    href: '#',
+    href: '#tier-breakdown',
     description: 'NFT Tier Breakdown',
     icon: ChartBarIcon,
   },
@@ -86,7 +86,7 @@ const recentPosts = [
 </script>
 
 <template>
-  <Popover class="relative bg-white shadow">
+  <Popover class="fixed w-full z-10 bg-white shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
         <div class="flex justify-start lg:w-0 lg:flex-1">

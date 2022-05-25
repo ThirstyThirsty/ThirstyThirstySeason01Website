@@ -13,7 +13,7 @@ import Button from '../atoms/Button';
           Celebrating ancestral agriculture through food, wine, & earth adventures. Let’s regenerate Mother Earth deliciously, together.
         </p>
         <div class="mt-10 sm:flex sm:justify-center">
-          <Button href="#">Mint Membership NFT</Button>
+          <Button href="#" primary>Mint Membership NFT</Button>
         </div>
       </div>
     </div>

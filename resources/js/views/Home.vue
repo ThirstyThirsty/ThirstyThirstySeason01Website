@@ -5,7 +5,7 @@ import SectionTierBreakdown from '../components/molecules/SectionTierBreakdown';
 
 <template>
   <main class="relative bg-gray-50">
-    <SectionHeader />
+    <SectionHeader class="pt-20" />
     <SectionTierBreakdown />
   </main>
 </template>
