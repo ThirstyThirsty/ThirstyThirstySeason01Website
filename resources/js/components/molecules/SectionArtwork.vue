@@ -1,3 +1,23 @@
+<script setup>
+const images = [
+  {
+    id: 1,
+    imageSrc: '/images/IMG_0537.png',
+    imageAlt: "",
+  },
+  {
+    id: 2,
+    imageSrc: '/images/IMG_0540.png',
+    imageAlt: "",
+  },
+  {
+    id: 3,
+    imageSrc: '/images/IMG_0544.png',
+    imageAlt: "",
+  },
+];
+</script>
+
 <template>
   <div class="bg-white">
     <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
@@ -21,7 +41,7 @@
                 <img class="object-cover shadow-lg rounded-lg" src="/images/000304610027100x768-1581354443215.jpeg" alt="" />
               </div>
               <div class="sm:col-span-1">
-                <div class="space-y-4">
+                <div class="space-y-4 pt-5 pl-10 pr-10">
                   <div class="text-2xl font-medium space-y-1">
                     <h2>Marleigh Culver</h2>
                   </div>
@@ -39,23 +59,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const images = [
-  {
-    id: 1,
-    imageSrc: '/images/IMG_0537.png',
-    imageAlt: "",
-  },
-  {
-    id: 2,
-    imageSrc: '/images/IMG_0540.png',
-    imageAlt: "",
-  },
-  {
-    id: 3,
-    imageSrc: '/images/IMG_0544.png',
-    imageAlt: "",
-  },
-];
-</script>

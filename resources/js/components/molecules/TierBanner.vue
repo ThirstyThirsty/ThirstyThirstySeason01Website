@@ -51,7 +51,7 @@ const { terms, benefits } = defineProps({
         <a :href="terms" class="font-medium text-gray-500 underline"> Learn about our Terms and Conditions </a>
       </p>
       <div class="mt-6">
-        <Button href="#" small> Mint </Button>
+        <Button small> Mint </Button>
       </div>
     </div>
   </div>

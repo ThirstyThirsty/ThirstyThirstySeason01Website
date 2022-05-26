@@ -4,7 +4,7 @@ import { useAttrs, computed } from 'vue'
 const attrsNames = Object.keys(useAttrs())
 
 const style = computed(() => {
-  let css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md ';
+  let css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md cursor-pointer ';
 
   if (attrsNames.includes('primary')) {
     css += 'text-white bg-indigo-600 hover:bg-indigo-700 ';
