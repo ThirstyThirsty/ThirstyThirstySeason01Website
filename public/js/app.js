@@ -19254,7 +19254,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
-/* harmony import */ var _views_Home_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/views/Home.vue */ "./resources/js/views/Home.vue");
+/* harmony import */ var _views_Home_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/Home.vue */ "./resources/js/views/Home.vue");
 
 
 var routes = [{
@@ -19265,13 +19265,13 @@ var routes = [{
   path: '/terms',
   name: 'Terms',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_js_views_Terms_vue").then(__webpack_require__.bind(__webpack_require__, /*! @/views/Terms.vue */ "./resources/js/views/Terms.vue"));
+    return __webpack_require__.e(/*! import() */ "resources_js_views_Terms_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Terms.vue */ "./resources/js/views/Terms.vue"));
   }
 }, {
   path: '/:pathMatch(.*)',
   name: 'NotFound',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_js_views_NotFound_vue").then(__webpack_require__.bind(__webpack_require__, /*! @/views/NotFound.vue */ "./resources/js/views/NotFound.vue"));
+    return __webpack_require__.e(/*! import() */ "resources_js_views_NotFound_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/NotFound.vue */ "./resources/js/views/NotFound.vue"));
   }
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createRouter)({

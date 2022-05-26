@@ -1,3 +1,5 @@
 {
-  "assets/app.js": "http://localhost:8080/assets/app.js"
+  "assets/app.js": "http://localhost:8080/assets/app.js",
+  "assets/resources_js_views_Terms_vue.js": "http://localhost:8080/assets/resources_js_views_Terms_vue.js",
+  "assets/resources_js_views_NotFound_vue.js": "http://localhost:8080/assets/resources_js_views_NotFound_vue.js"
 }
