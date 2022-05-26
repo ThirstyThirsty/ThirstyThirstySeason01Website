@@ -15,7 +15,7 @@ const { terms, benefits } = defineProps({
 </script>
 
 <template>
-  <div class="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
+  <div class="max-w-lg mx-auto shadow-lg overflow-hidden lg:max-w-none lg:flex">
     <div class="flex-1 bg-white px-6 py-8 lg:p-12">
       <h3 class="text-2xl font-extrabold sm:text-3xl">
         <span class="text-gray-900"><slot name="title" /></span>
@@ -25,7 +25,7 @@ const { terms, benefits } = defineProps({
       </h3>
       <div class="mt-8">
         <div class="flex items-center">
-          <h4 class="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-indigo-600">What's included</h4>
+          <h4 class="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-purple-600">What's included</h4>
           <div class="flex-1 border-t-2 border-gray-200" />
         </div>
         <ul role="list" class="mt-8 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5">

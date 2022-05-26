@@ -4,7 +4,7 @@
       <h3><slot name="name" /></h3>
     </div>
     <div class="text-lg">
-      <p class="text-gray-500"><slot name="bio" /></p>
+      <p class="text-gray-900"><slot name="bio" /></p>
     </div>
   </div>
 </template>

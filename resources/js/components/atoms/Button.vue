@@ -7,7 +7,7 @@ const style = computed(() => {
   let css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md cursor-pointer ';
 
   if (attrsNames.includes('primary')) {
-    css += 'text-white bg-indigo-600 hover:bg-indigo-700 ';
+    css += 'text-white bg-purple-600 hover:bg-purple-700 ';
   } else if (attrsNames.includes('ghost')) {
     css += 'text-gray-900 ';
   } else {

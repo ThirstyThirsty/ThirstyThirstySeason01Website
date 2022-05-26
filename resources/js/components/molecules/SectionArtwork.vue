@@ -27,7 +27,7 @@ const images = [
 
       <div class="mt-6 grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-y-0 sm:gap-x-3 lg:gap-x-4">
         <div v-for="image in images" :key="image.id" class="group relative">
-          <div class="w-full h-96 rounded-lg overflow-hidden sm:h-auto sm:aspect-w-2 sm:aspect-h-3">
+          <div class="w-full h-96 overflow-hidden sm:h-auto sm:aspect-w-2 sm:aspect-h-3">
             <img :src="image.imageSrc" :alt="image.imageAlt" class="w-full h-full object-center object-cover" />
           </div>
         </div>
@@ -38,7 +38,7 @@ const images = [
           <li>
             <div class="space-y-4 sm:grid sm:grid-cols-2 sm:gap-3 sm:space-y-0 lg:gap-4">
               <div class="h-0 aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
-                <img class="object-cover shadow-lg rounded-lg" src="/images/000304610027100x768-1581354443215.jpeg" alt="" />
+                <img class="object-cover" src="/images/000304610027100x768-1581354443215.jpeg" alt="" />
               </div>
               <div class="sm:col-span-1">
                 <div class="space-y-4 pt-5 pl-10 pr-10">
