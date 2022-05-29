@@ -1,4 +1,6 @@
 <script setup>
+import { storeToRefs } from 'pinia';
+
 import {
   Popover,
   PopoverButton,
@@ -23,6 +25,13 @@ import {
 } from '@heroicons/vue/outline';
 
 import { ChevronDownIcon } from '@heroicons/vue/solid';
+
+import Button from '../atoms/Button'
+
+import { useBlockchainStore } from '../../stores/blockchain';
+
+const { init, connectWallet } = useBlockchainStore();
+const { isWalletConnected, isReady } = storeToRefs(useBlockchainStore());
 
 const menuItems = [
   {
@@ -83,6 +92,15 @@ const recentPosts = [
   { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
   { id: 3, name: 'Improve your customer experience', href: '#' },
 ];
+
+(async () => {
+  await init();
+})();
+
+const attemptConnect = async () => {
+  console.info('[INFO] Connecting wallet...');
+  await connectWallet();
+};
 </script>
 
 <template>
@@ -112,7 +130,15 @@ const recentPosts = [
           </a>
         </PopoverGroup>
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700"> Connect Wallet </a>
+          <Button
+            v-if="isReady"
+            @click.prevent="attemptConnect"
+            ghost
+            small
+            :disabled="isWalletConnected"
+          >
+            {{ isWalletConnected ? 'Connected' : 'Connect Wallet' }}
+          </Button>
         </div>
       </div>
     </div>
