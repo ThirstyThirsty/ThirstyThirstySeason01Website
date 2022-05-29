@@ -2,25 +2,24 @@
 import BannerTier from './BannerTier'
 
 const tier1 = [
-  'Bottle of exclusive to Thirsty Thirsty from our partners at Phalen Farms (link)',
-  'Launch Party access in NYC with partner Ediciones (link)',
-  'Digital Session with Raj from Phalen Farms',
-  'Digital Session with Black/Indigenous Partner',
-  'Digital Session with XYZ - NEED',
-  'DAO Partner Benefit ONE - NEED',
-  'DAO Partner Benefit TWO - NEED',
-  'DAO Partner Benefit THREE - NEED',
+  '1 bottle of Collector Pinot Noir exclusive to Thirsty Thirsty, made by Phalen Farm (Rajat Parr) with wine label art by Marleigh Culver',
+  'Launch Party access to our NFT NYC lunch, with partner Édiciones',
+  'VIP dining access with Assembly Hospitality and Id Est Hospitality',
+  'VIP Winery access at Phelan Farm and Two Eighty Project vineyards',
+  'VIP Private Chef access with Édiciones',
+  'First access to TT travel experiences: <em>Harvest Experience, Ceremony in Amazonas...</em>',
   'Future TT event access/member benefits for NFT holders',
+  'More to unlock with each future Cohort'
 ];
 
 const tier2 = [
-  'Launch Party access in NYC with partner Ediciones (link)',
-  'Digital Session with Black/Indigenous Partner',
-  'Digital Session with XYZ',
-  'DAO Partner Benefit ONE',
-  'DAO Partner Benefit TWO',
-  'DAO Partner Benefit THREE',
+  'Fine art NFT by Marleigh Culver',
+  'Launch Party access to NFT NYC lunch with partner Édiciones',
+  'VIP dining access at Assembly Hospitality  and Id Est Hospitality restaurants',
+  'VIP Winery access at Phelan Farm and Two Eighty Project vineyards',
+  'First access to TT travel experiences: <em>Harvest Experience, Ceremony in Amazonas...</em>',
   'Future TT event access/member benefits for NFT holders',
+  'More nodes to unlock with each future Cohort'
 ];
 </script>
 

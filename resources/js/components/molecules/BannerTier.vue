@@ -25,7 +25,7 @@ const { terms, benefits } = defineProps({
       </h3>
       <div class="mt-8">
         <div class="flex items-center">
-          <h4 class="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-purple-600">What's included</h4>
+          <h4 class="flex-shrink-0 pr-4 bg-white text-sm tracking-wider font-semibold uppercase text-purple-600">Utility</h4>
           <div class="flex-1 border-t-2 border-gray-200" />
         </div>
         <ul role="list" class="mt-8 space-y-5 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5">
@@ -33,9 +33,7 @@ const { terms, benefits } = defineProps({
             <div class="flex-shrink-0">
               <CheckCircleIcon class="h-5 w-5 text-green-400" aria-hidden="true" />
             </div>
-            <p class="ml-3 text-sm text-gray-700">
-              {{ feature }}
-            </p>
+            <p class="ml-3 text-sm text-gray-700" v-html="feature" />
           </li>
         </ul>
       </div>
