@@ -1,7 +1,14 @@
 <script setup>
-import { useAttrs, computed } from 'vue'
+import { useAttrs, computed, toRef } from 'vue';
 
-const attrsNames = Object.keys(useAttrs())
+const props = defineProps({
+  gold: {
+    type: Boolean,
+    default: false
+  }
+});
+
+const attrsNames = Object.keys(useAttrs());
 
 const style = computed(() => {
   let css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md cursor-pointer disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed ';
@@ -12,6 +19,10 @@ const style = computed(() => {
     css += 'text-gray-900 border border-gray-600 ';
   } else {
     css += 'text-white bg-gray-800 hover:bg-gray-900 px-5 py-3 border border-transparent ';
+  }
+
+  if (props.gold) {
+    css += 'text-white bg-yellow-600 hover:bg-yellow-700 ';
   }
 
   if (attrsNames.includes('small')) {

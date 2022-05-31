@@ -1,15 +1,14 @@
 import { defineStore } from 'pinia';
 import * as ethers from 'ethers';
+import axios from 'axios';
+import { CONTRACT_ADDR } from '../constants';
 
-const MAX_CELLAR = 270;
-const MAX_TABLE = 618;
-const MAX_FRENS = 50;
-
-const CONTRACT_ADDR = '';
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.baseURL = '/api/';
 
 const { ethereum } = window;
 if (!ethereum) {
-  alert('Please install the MetaMask wallet extension on your browser')
+  alert('Please install the MetaMask wallet extension on your browser');
 }
 
 let provider;
@@ -23,7 +22,8 @@ export const useBlockchainStore = defineStore({
     publicKey: '',
     numMintedCellar: 0,
     numMintedTable: 0,
-    numMintedFrens: 0
+    numMintedFrens: 0,
+    isGoldlisted: false
   }),
   getters: {
     isWalletConnected: state => {
@@ -37,7 +37,21 @@ export const useBlockchainStore = defineStore({
 
       this.isInitialized = true;
       this.publicKey = await this.getAccountPubKey();
+      if (this.publicKey) {
+        await this.checkGoldlisted();
+      }
       this.isReady = true;
+    },
+
+    async checkGoldlisted() {
+      try {
+        const pkey = await signer.getAddress()
+        const { data: { goldlisted } } = await axios.get(`list/${pkey}`);
+        this.isGoldlisted = !!goldlisted;
+        console.log(`Goldlisted: ${this.isGoldlisted}`);
+      } catch (error) {
+        alert('Please install the MetaMask wallet extension on your browser')
+      }
     },
 
     async getAccountPubKey() {

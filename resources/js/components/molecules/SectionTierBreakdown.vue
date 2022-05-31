@@ -1,5 +1,16 @@
 <script setup>
-import BannerTier from './BannerTier'
+import BannerTier from './BannerTier';
+import { storeToRefs } from 'pinia';
+import { computed } from 'vue';
+import { useBlockchainStore } from '../../stores/blockchain';
+
+import {
+  PRICE_CELLAR,
+  PRICE_TABLE,
+  PRICE_TABLE_GOLD
+} from '../../constants';
+
+const { isGoldlisted } = storeToRefs(useBlockchainStore());
 
 const tier1 = [
   '1 bottle of Collector Pinot Noir exclusive to Thirsty Thirsty, made by Phalen Farm (Rajat Parr) with wine label art by Marleigh Culver',
@@ -21,6 +32,10 @@ const tier2 = [
   'Future TT event access/member benefits for NFT holders',
   'More nodes to unlock with each future Cohort'
 ];
+
+const priceTable = computed(() => {
+  return isGoldlisted ? PRICE_TABLE_GOLD : PRICE_TABLE
+});
 </script>
 
 <template>
@@ -42,13 +57,13 @@ const tier2 = [
           <BannerTier :benefits="tier1" terms="/terms" class="mb-4">
             <template #title>Tier 1 - "Cellar"</template>
             <template #availability>270</template>
-            <template #price>0.4</template>
+            <template #price>{{ PRICE_CELLAR }}</template>
           </BannerTier>
 
-          <BannerTier :benefits="tier2">
+          <BannerTier :benefits="tier2" :goldlisted="isGoldlisted">
             <template #title>Tier 2 - "Table"</template>
             <template #availability>518</template>
-            <template #price>0.2</template>
+            <template #price>{{ priceTable }}</template>
           </BannerTier>
         </div>
       </div>

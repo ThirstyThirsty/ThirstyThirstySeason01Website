@@ -1,8 +1,8 @@
 <script setup>
 import { CheckCircleIcon } from '@heroicons/vue/solid';
-import Button from '../atoms/Button'
+import Button from '../atoms/Button';
 
-const { terms, benefits } = defineProps({
+const { terms, benefits, goldlisted } = defineProps({
   benefits: {
     type: Array,
     default: []
@@ -10,6 +10,10 @@ const { terms, benefits } = defineProps({
   terms: {
     type: String,
     default: ''
+  },
+  goldlisted: {
+    type: Boolean,
+    default: false
   }
 });
 </script>
@@ -49,7 +53,7 @@ const { terms, benefits } = defineProps({
         <a :href="terms" class="font-medium text-gray-500 underline"> Learn about our Terms and Conditions </a>
       </p>
       <div class="mt-6">
-        <Button small> Mint </Button>
+        <Button small :gold="goldlisted"> Mint </Button>
       </div>
     </div>
   </div>
