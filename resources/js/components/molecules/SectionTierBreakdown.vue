@@ -7,10 +7,14 @@ import { useBlockchainStore } from '../../stores/blockchain';
 import {
   PRICE_CELLAR,
   PRICE_TABLE,
-  PRICE_TABLE_GOLD
+  PRICE_TABLE_GOLD,
+  TIER_TABLE,
+  TIER_CELLAR,
+  MAX_CELLAR,
+  MAX_TABLE
 } from '../../constants';
 
-const { isGoldlisted } = storeToRefs(useBlockchainStore());
+const { isGoldlisted, numMintedCellar, numMintedTable } = storeToRefs(useBlockchainStore());
 
 const tier1 = [
   '1 bottle of Collector Pinot Noir exclusive to Thirsty Thirsty, made by Phalen Farm (Rajat Parr) with wine label art by Marleigh Culver',
@@ -33,6 +37,9 @@ const tier2 = [
   'More nodes to unlock with each future Cohort'
 ];
 
+const { isMinting, canMint } = storeToRefs(useBlockchainStore());
+const { mint } = useBlockchainStore();
+
 const priceTable = computed(() => {
   return isGoldlisted ? PRICE_TABLE_GOLD : PRICE_TABLE
 });
@@ -54,15 +61,30 @@ const priceTable = computed(() => {
       <div class="relative">
         <div class="absolute inset-0 h-4/5 tt-bg-redish" />
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <BannerTier :benefits="tier1" terms="/terms" class="mb-4">
+          <BannerTier
+            @mint="mint"
+            :tier-name="TIER_CELLAR"
+            :benefits="tier1"
+            :loading="isMinting"
+            :disabled="isMinting || !canMint"
+            terms="/terms"
+            class="mb-4"
+          >
             <template #title>Tier 1 - "Cellar"</template>
-            <template #availability>270</template>
+            <template #availability>{{ MAX_CELLAR - numMintedCellar }}</template>
             <template #price>{{ PRICE_CELLAR }}</template>
           </BannerTier>
 
-          <BannerTier :benefits="tier2" :goldlisted="isGoldlisted">
+          <BannerTier
+            @mint="mint"
+            :tier-name="TIER_TABLE"
+            :benefits="tier2"
+            :goldlisted="isGoldlisted"
+            :loading="isMinting"
+            :disabled="isMinting || !canMint"
+          >
             <template #title>Tier 2 - "Table"</template>
-            <template #availability>518</template>
+            <template #availability>{{ MAX_TABLE - numMintedTable }}</template>
             <template #price>{{ priceTable }}</template>
           </BannerTier>
         </div>

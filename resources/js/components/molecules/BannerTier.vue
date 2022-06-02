@@ -1,8 +1,18 @@
 <script setup>
+import { computed } from 'vue';
 import { CheckCircleIcon } from '@heroicons/vue/solid';
 import Button from '../atoms/Button';
+import {
+  TIER_TABLE,
+  TIER_CELLAR,
+  TIER_TABLE_GOLD
+} from '../../constants'
 
-const { terms, benefits, goldlisted } = defineProps({
+const props = defineProps({
+  tierName: {
+    type: String,
+    required: true
+  },
   benefits: {
     type: Array,
     default: []
@@ -14,7 +24,23 @@ const { terms, benefits, goldlisted } = defineProps({
   goldlisted: {
     type: Boolean,
     default: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  loading: {
+    type: Boolean,
+    default: false
   }
+});
+
+const tier = computed(() => {
+  if (props.tierName === TIER_CELLAR) return props.tierName;
+  if (props.tierName === TIER_TABLE) {
+    return props.goldlisted ? TIER_TABLE_GOLD : TIER_TABLE;
+  }
+  return '';
 });
 </script>
 
@@ -53,7 +79,15 @@ const { terms, benefits, goldlisted } = defineProps({
         <a :href="terms" class="font-medium text-gray-500 underline"> Learn about our Terms and Conditions </a>
       </p>
       <div class="mt-6">
-        <Button small :gold="goldlisted"> Mint </Button>
+        <Button
+          @click.stop="$emit('mint', tier)"
+          :gold="goldlisted"
+          :loading="loading"
+          :disabled="disabled"
+          small
+        >
+          Mint
+        </Button>
       </div>
     </div>
   </div>
