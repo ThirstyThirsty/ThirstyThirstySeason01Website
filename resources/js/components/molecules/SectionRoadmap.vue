@@ -1,5 +1,5 @@
 <template>
-  <section class="overflow-hidden text-gray-700">
+  <section class="overflow-hidden text-gray-700" id="roadmap">
     <div class="text-center">
       <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl mt-16">Roadmap</h2>
     </div>

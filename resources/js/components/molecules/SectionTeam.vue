@@ -51,7 +51,7 @@ const people = [
 </script>
 
 <template>
-  <div class="bg-white">
+  <div class="bg-white" id="team">
     <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
       <div class="space-y-12">
         <h2 class="text-3xl text-center font-extrabold tracking-tight sm:text-4xl">Team Info</h2>

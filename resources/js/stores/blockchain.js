@@ -53,7 +53,7 @@ export const useBlockchainStore = defineStore({
     }
   },
   actions: {
-    async init() {
+    async initBlockchain() {
       const modalStore = useModalStore();
       this.openModal = modalStore.openModal;
 

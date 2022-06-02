@@ -16,7 +16,7 @@ const { person } = defineProps({
 <template>
   <div class="space-y-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:gap-8">
     <div class="h-0 aspect-w-3 aspect-h-3 sm:aspect-w-3 sm:aspect-h-3">
-      <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" :src="person.imageUrl" />
+      <img class="mx-auto h-90 w-90 rounded-full xl:w-56 xl:h-56" :src="person.imageUrl" />
     </div>
     <div>
       <div class="space-y-4">

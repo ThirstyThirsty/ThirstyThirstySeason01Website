@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, onUnmounted } from 'vue';
 import { storeToRefs } from 'pinia';
 
 import {
@@ -29,62 +30,69 @@ import { ChevronDownIcon } from '@heroicons/vue/solid';
 import Button from '../atoms/Button'
 
 import { useBlockchainStore } from '../../stores/blockchain';
+import { useScrollStore } from '../../stores/scroll';
 
-const { init, connectWallet } = useBlockchainStore();
+const { scrollTo } = useScrollStore();
+const { initBlockchain, connectWallet } = useBlockchainStore();
 const { isWalletConnected, isReady } = storeToRefs(useBlockchainStore());
 
 const menuItems = [
   {
     name: 'NFT Tier Breakdown',
-    href: '/#tier-breakdown',
     description: 'NFT Tier Breakdown',
     icon: ChartBarIcon,
+    href:'#',
+    to: 'tier'
   },
   {
     name: 'NFT Artwork',
-    href: '#',
     description: 'NFT Artwork',
     icon: SparklesIcon,
+    href:'#',
+    to: 'artwork'
   },
   {
     name: 'Our Partners',
-    href: '#',
     description: "Our Partners",
     icon: GlobeIcon,
+    href:'#',
+    to: 'partners'
   },
   {
     name: 'Roadmap',
-    href: '#',
     description: 'Roadmap',
     icon: FireIcon,
+    href:'#',
+    to: 'roadmap'
   },
   {
     name: 'Team Info',
-    href: '#',
     description: 'Team Info',
     icon: UserGroupIcon,
+    href:'#',
+    to: 'team'
   },
 ];
 const footerItem = [
   {
     name: 'Discord',
     description: 'Discord',
-    href: '#'
+    href: 'https://discord.gg/xZ2Ue8qKGp'
   },
   {
     name: 'Twitter',
     description: 'Twitter',
-    href: '#'
+    href: 'https://twitter.com/thirstythirsty8'
   },
   {
     name: 'Instagram',
     description: 'Instagram',
-    href: '#'
+    href: 'https://www.instagram.com/thirstythirsty/'
   },
   {
     name: 'Website',
     description: 'Website',
-    href: '#'
+    href: 'https://www.thirstythirsty.org/'
   },
 ];
 const recentPosts = [
@@ -93,9 +101,9 @@ const recentPosts = [
   { id: 3, name: 'Improve your customer experience', href: '#' },
 ];
 
-(async () => {
-  await init();
-})();
+onMounted(async () => {
+  await initBlockchain();
+});
 
 const attemptConnect = async () => {
   console.info('[INFO] Connecting wallet...');
@@ -122,7 +130,8 @@ const attemptConnect = async () => {
         <PopoverGroup as="nav" class="hidden md:flex space-x-10">
           <a
             v-for="item in menuItems"
-            :href="item.href"
+            @click.prevent="scrollTo(item.to)"
+            href="#"
             :description="item.description"
             class="text-lg font-medium text-gray-700 hover:text-gray-900 font-serif"
           >
@@ -160,7 +169,12 @@ const attemptConnect = async () => {
             </div>
             <div class="mt-6">
               <nav class="grid gap-y-8">
-                <a v-for="item in menuItems" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                <a
+                  v-for="item in menuItems"
+                  :key="item.name"
+                  @click="scrollTo(item.to)"
+                  class="-m-3 p-3 flex cursor-pointer items-center rounded-md hover:bg-gray-50"
+                >
                   <component :is="item.icon" class="flex-shrink-0 h-6 w-6 text-purple-600" aria-hidden="true" />
                   <span class="ml-3 text-base font-medium text-gray-900">
                     {{ item.name }}
@@ -171,7 +185,13 @@ const attemptConnect = async () => {
           </div>
           <div class="py-6 px-5 space-y-6">
             <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-              <a v-for="item in footerItem" :key="item.name" :href="item.href" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:text-gray-700">
+              <a
+                v-for="item in footerItem"
+                :key="item.name"
+                :href="item.href"
+                noopener noreferrer
+                class="-m-3 p-3 flex items-center rounded-md cursor-pointer text-base font-medium text-gray-900 hover:text-gray-700"
+              >
                 {{ item.name }}
               </a>
             </div>
