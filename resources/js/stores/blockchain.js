@@ -21,14 +21,12 @@ import {
   ERR_MSG_CLAIMED,
   ERR_MSG_UNKNOWN
 } from '../constants';
+import { useModalStore } from './modal';
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.baseURL = '/api/';
 
 const { ethereum } = window;
-if (!ethereum) {
-  alert('Please install the MetaMask wallet extension on your browser');
-}
 
 let provider;
 let signer;
@@ -45,7 +43,9 @@ export const useBlockchainStore = defineStore({
     numMintedCellar: 0,
     numMintedTable: 0,
     numMintedFrens: 0,
-    isGoldlisted: false
+    isGoldlisted: false,
+    network: '',
+    openModal: null
   }),
   getters: {
     isWalletConnected: state => {
@@ -54,9 +54,23 @@ export const useBlockchainStore = defineStore({
   },
   actions: {
     async init() {
+      const modalStore = useModalStore();
+      this.openModal = modalStore.openModal;
+
+      if (!ethereum) {
+        this.openModal('Digital wallet needed', 'Please install the MetaMask wallet extension on your browser to proceed', '⚠️', 'bg-red-100');
+      }
+
       provider = new ethers.providers.Web3Provider(ethereum, 'any');
       signer = provider.getSigner();
       contract = new ethers.Contract(CONTRACT_ADDR, Contract.abi, signer);
+
+      const { chainId, name } = await provider.getNetwork();
+      if (chainId === 1337 && !name) {
+        this.network = 'localhost';
+      } else {
+        this.network = name;
+      }
 
       this.isInitialized = true;
       this.publicKey = await this.getAccountPubKey();
@@ -73,9 +87,8 @@ export const useBlockchainStore = defineStore({
         const pkey = await signer.getAddress()
         const { data: { goldlisted } } = await axios.get(`list/${pkey}`);
         this.isGoldlisted = !!goldlisted;
-        console.log(`Goldlisted: ${this.isGoldlisted}`);
       } catch (error) {
-        alert('Please install the MetaMask wallet extension on your browser')
+        this.openModal('Digital wallet needed', 'Please install the MetaMask wallet extension on your browser to proceed', '⚠️', 'bg-red-100');
       }
     },
 
@@ -103,14 +116,6 @@ export const useBlockchainStore = defineStore({
       this.numMintedFrens = +frens.toString();
     },
 
-    async fetchTotalMinted() {
-
-    },
-
-    async fetchAvailabilities() {
-
-    },
-
     async mint(tierName) {
       if (this.isMinting) return;
       if (![TIER_CELLAR, TIER_TABLE, TIER_TABLE_GOLD].includes(tierName)) {
@@ -120,6 +125,8 @@ export const useBlockchainStore = defineStore({
       this.isMinting = true;
 
       console.log(`Attempting to mint tier "${tierName}"`);
+
+      this.openModal('Minting...', 'Please complete process within your wallet and wait for the process to complete.', '⛏️', 'bg-yellow-100');
 
       const prices = {
         [TIER_CELLAR]: PRICE_CELLAR,
@@ -152,10 +159,17 @@ export const useBlockchainStore = defineStore({
         const { transactionHash } = await tx.wait()
         console.log(transactionHash);
 
+        this.openModal(
+          'Mint successful!',
+          `Your NFT should take a little time to appear in your wallet. You can verify and follow the transaction by clicking <a href="${this.txLink(transactionHash)}" target="_blank" noopener noreferrer class="underline underline-offset-1">here</a>.`,
+          '🎉', 'bg-green-100'
+        );
+
         await this.fetchMintedPerTiers();
       } catch (error) {
+        console.log(error)
         const message = this.extractErrorMessage(error)
-        alert(message);
+        this.openModal('Minting failed', message, '🙁', 'bg-red-100');
       } finally {
         this.isMinting = false;
       }
@@ -191,6 +205,13 @@ export const useBlockchainStore = defineStore({
         return ERR_MSG_NOT_STARTED;
       }
       return ERR_MSG_UNKNOWN;
+    },
+
+    txLink(hash) {
+      if (['rinkeby', 'homestead'].includes(this.network)) {
+        return `https://${this.network === 'rinkeby' ? 'rinkeby.' : '' }etherscan.io/tx/${hash}`;
+      }
+      return '';
     }
   }
 });

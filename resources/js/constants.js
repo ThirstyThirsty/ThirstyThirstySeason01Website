@@ -16,9 +16,9 @@ export const TIER_TABLE = 'table';
 export const TIER_TABLE_GOLD = 'tableGold';
 export const TIER_FRENS = 'frens';
 
-export const ERR_MSG_FUND = 'You have insufficient fund to mint';
-export const ERR_MSG_MINT = "Seems like you've already minted the maximum number per wallet";
-export const ERR_MSG_CLAIMED = "Seems like you've already minted your goldlisted NFT... Try another Tier!";
+export const ERR_MSG_FUND = 'You have insufficient funds to mint.';
+export const ERR_MSG_MINT = "Seems like you've already minted the maximum number per wallet.";
+export const ERR_MSG_CLAIMED = "Seems like you've already minted an NFT!";
 export const ERR_MSG_NOT_STARTED = 'Minting has not yet started!';
 export const ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...';
 

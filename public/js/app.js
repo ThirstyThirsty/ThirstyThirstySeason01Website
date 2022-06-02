@@ -41857,8 +41857,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'IconEmoji',
   props: {
-    emoji: String,
-    "default": ''
+    emoji: {
+      type: String,
+      "default": ''
+    },
+    color: {
+      type: String,
+      "default": ''
+    }
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
@@ -42235,13 +42241,21 @@ __webpack_require__.r(__webpack_exports__);
     expose();
 
     var _storeToRefs = (0,pinia__WEBPACK_IMPORTED_MODULE_2__.storeToRefs)((0,_stores_modal__WEBPACK_IMPORTED_MODULE_1__.useModalStore)()),
-        isOpen = _storeToRefs.isOpen;
+        isOpen = _storeToRefs.isOpen,
+        title = _storeToRefs.title,
+        body = _storeToRefs.body,
+        emoji = _storeToRefs.emoji,
+        color = _storeToRefs.color;
 
     var _useModalStore = (0,_stores_modal__WEBPACK_IMPORTED_MODULE_1__.useModalStore)(),
         closeModal = _useModalStore.closeModal;
 
     var __returned__ = {
       isOpen: isOpen,
+      title: title,
+      body: body,
+      emoji: emoji,
+      color: color,
       closeModal: closeModal,
       storeToRefs: pinia__WEBPACK_IMPORTED_MODULE_2__.storeToRefs,
       Dialog: _headlessui_vue__WEBPACK_IMPORTED_MODULE_3__.Dialog,
@@ -42606,12 +42620,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "class": "text-xl mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100"
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.emoji), 1
-  /* TEXT */
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["text-xl mx-auto flex items-center justify-center h-12 w-12 rounded-full", $props.color])
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.emoji), 3
+  /* TEXT, CLASS */
   );
 }
 
@@ -43390,20 +43403,10 @@ var _hoisted_3 = {
 var _hoisted_4 = {
   "class": "mt-3 text-center sm:mt-5"
 };
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Payment successful ");
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_5 = {
   "class": "mt-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "text-sm text-gray-500"
-}, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.")], -1
-/* HOISTED */
-);
-
-var _hoisted_7 = {
-  "class": "mt-5 sm:mt-6"
 };
+var _hoisted_6 = ["innerHTML"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["TransitionRoot"], {
     as: "template",
@@ -43446,24 +43449,28 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               }, {
                 "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
                   return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["IconEmoji"], {
-                    emoji: "🎉"
-                  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["DialogTitle"], {
+                    emoji: $setup.emoji,
+                    color: $setup.color
+                  }, null, 8
+                  /* PROPS */
+                  , ["emoji", "color"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["DialogTitle"], {
                     as: "h3",
                     "class": "text-lg leading-6 font-medium text-gray-900"
                   }, {
                     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-                      return [_hoisted_5];
+                      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.title), 1
+                      /* TEXT */
+                      )];
                     }),
                     _: 1
                     /* STABLE */
 
-                  }), _hoisted_6])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-                    type: "button",
-                    "class": "inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm",
-                    onClick: _cache[0] || (_cache[0] = function () {
-                      return $setup.closeModal && $setup.closeModal.apply($setup, arguments);
-                    })
-                  }, "Go back to dashboard")])];
+                  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+                    "class": "text-sm text-gray-500",
+                    innerHTML: $setup.body
+                  }, null, 8
+                  /* PROPS */
+                  , _hoisted_6)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"mt-5 sm:mt-6\">\n                <button type=\"button\" class=\"inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm\" @click=\"closeModal\">Go back to dashboard</button>\n              </div> ")];
                 }),
                 _: 1
                 /* STABLE */
@@ -43832,9 +43839,9 @@ var TIER_CELLAR = 'cellar';
 var TIER_TABLE = 'table';
 var TIER_TABLE_GOLD = 'tableGold';
 var TIER_FRENS = 'frens';
-var ERR_MSG_FUND = 'You have insufficient fund to mint';
-var ERR_MSG_MINT = "Seems like you've already minted the maximum number per wallet";
-var ERR_MSG_CLAIMED = "Seems like you've already minted your goldlisted NFT... Try another Tier!";
+var ERR_MSG_FUND = 'You have insufficient funds to mint.';
+var ERR_MSG_MINT = "Seems like you've already minted the maximum number per wallet.";
+var ERR_MSG_CLAIMED = "Seems like you've already minted an NFT!";
 var ERR_MSG_NOT_STARTED = 'Minting has not yet started!';
 var ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...';
 var CONTRACT_ADDR = '0x5fbdb2315678afecb367f032d93f642f64180aa3';
@@ -43894,14 +43901,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var pinia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! pinia */ "./node_modules/pinia/dist/pinia.esm-browser.js");
-/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ethers */ "./node_modules/@ethersproject/providers/lib.esm/web3-provider.js");
-/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ethers */ "./node_modules/@ethersproject/contracts/lib.esm/index.js");
-/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ethers */ "./node_modules/@ethersproject/units/lib.esm/index.js");
+/* harmony import */ var pinia__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! pinia */ "./node_modules/pinia/dist/pinia.esm-browser.js");
+/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ethers */ "./node_modules/@ethersproject/providers/lib.esm/web3-provider.js");
+/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ethers */ "./node_modules/@ethersproject/contracts/lib.esm/index.js");
+/* harmony import */ var ethers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ethers */ "./node_modules/@ethersproject/units/lib.esm/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _abi_ThirstyThirstySeason01_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../abi/ThirstyThirstySeason01.json */ "./resources/abi/ThirstyThirstySeason01.json");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../constants */ "./resources/js/constants.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal */ "./resources/js/stores/modal.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -43927,19 +43935,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.headers.common["X-Requested-With"]) = 'XMLHttpRequest';
 (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.baseURL) = '/api/';
 var _window = window,
     ethereum = _window.ethereum;
-
-if (!ethereum) {
-  alert('Please install the MetaMask wallet extension on your browser');
-}
-
 var provider;
 var signer;
 var contract;
-var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)({
+var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
   id: 'blockchain',
   state: function state() {
     return {
@@ -43951,7 +43955,9 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)({
       numMintedCellar: 0,
       numMintedTable: 0,
       numMintedFrens: 0,
-      isGoldlisted: false
+      isGoldlisted: false,
+      network: '',
+      openModal: null
     };
   },
   getters: {
@@ -43964,36 +43970,59 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)({
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var modalStore, _yield$provider$getNe, chainId, name;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                provider = new ethers__WEBPACK_IMPORTED_MODULE_5__.Web3Provider(ethereum, 'any');
+                modalStore = (0,_modal__WEBPACK_IMPORTED_MODULE_4__.useModalStore)();
+                _this.openModal = modalStore.openModal;
+
+                if (!ethereum) {
+                  _this.openModal('Digital wallet needed', 'Please install the MetaMask wallet extension on your browser to proceed', '⚠️', 'bg-red-100');
+                }
+
+                provider = new ethers__WEBPACK_IMPORTED_MODULE_6__.Web3Provider(ethereum, 'any');
                 signer = provider.getSigner();
-                contract = new ethers__WEBPACK_IMPORTED_MODULE_6__.Contract(_constants__WEBPACK_IMPORTED_MODULE_3__.CONTRACT_ADDR, _abi_ThirstyThirstySeason01_json__WEBPACK_IMPORTED_MODULE_2__.abi, signer);
+                contract = new ethers__WEBPACK_IMPORTED_MODULE_7__.Contract(_constants__WEBPACK_IMPORTED_MODULE_3__.CONTRACT_ADDR, _abi_ThirstyThirstySeason01_json__WEBPACK_IMPORTED_MODULE_2__.abi, signer);
+                _context.next = 8;
+                return provider.getNetwork();
+
+              case 8:
+                _yield$provider$getNe = _context.sent;
+                chainId = _yield$provider$getNe.chainId;
+                name = _yield$provider$getNe.name;
+
+                if (chainId === 1337 && !name) {
+                  _this.network = 'localhost';
+                } else {
+                  _this.network = name;
+                }
+
                 _this.isInitialized = true;
-                _context.next = 6;
+                _context.next = 15;
                 return _this.getAccountPubKey();
 
-              case 6:
+              case 15:
                 _this.publicKey = _context.sent;
 
                 if (!_this.publicKey) {
-                  _context.next = 10;
+                  _context.next = 19;
                   break;
                 }
 
-                _context.next = 10;
+                _context.next = 19;
                 return _this.checkGoldlisted();
 
-              case 10:
-                _context.next = 12;
+              case 19:
+                _context.next = 21;
                 return _this.fetchMintedPerTiers();
 
-              case 12:
+              case 21:
                 _this.isReady = true;
 
-              case 13:
+              case 22:
               case "end":
                 return _context.stop();
             }
@@ -44024,21 +44053,21 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)({
                 _yield$axios$get = _context2.sent;
                 goldlisted = _yield$axios$get.data.goldlisted;
                 _this2.isGoldlisted = !!goldlisted;
-                console.log("Goldlisted: ".concat(_this2.isGoldlisted));
-                _context2.next = 15;
+                _context2.next = 14;
                 break;
 
-              case 12:
-                _context2.prev = 12;
+              case 11:
+                _context2.prev = 11;
                 _context2.t0 = _context2["catch"](0);
-                alert('Please install the MetaMask wallet extension on your browser');
 
-              case 15:
+                _this2.openModal('Digital wallet needed', 'Please install the MetaMask wallet extension on your browser to proceed', '⚠️', 'bg-red-100');
+
+              case 14:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 12]]);
+        }, _callee2, null, [[0, 11]]);
       }))();
     },
     getAccountPubKey: function getAccountPubKey() {
@@ -44147,20 +44176,123 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)({
         }, _callee5);
       }))();
     },
-    fetchTotalMinted: function fetchTotalMinted() {
+    mint: function mint(tierName) {
+      var _this6 = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var _prices, _tierIds;
+
+        var prices, tierIds, price, tierId, tx, pkey, _yield$axios$get2, proof, _yield$tx$wait, transactionHash, message;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
+                if (!_this6.isMinting) {
+                  _context6.next = 2;
+                  break;
+                }
+
+                return _context6.abrupt("return");
+
+              case 2:
+                if ([_constants__WEBPACK_IMPORTED_MODULE_3__.TIER_CELLAR, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_GOLD].includes(tierName)) {
+                  _context6.next = 4;
+                  break;
+                }
+
+                throw new Error('Invalid tier name');
+
+              case 4:
+                _this6.isMinting = true;
+                console.log("Attempting to mint tier \"".concat(tierName, "\""));
+
+                _this6.openModal('Minting...', 'Please complete process within your wallet and wait for the process to complete.', '⛏️', 'bg-yellow-100');
+
+                prices = (_prices = {}, _defineProperty(_prices, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_CELLAR, _constants__WEBPACK_IMPORTED_MODULE_3__.PRICE_CELLAR), _defineProperty(_prices, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE, _constants__WEBPACK_IMPORTED_MODULE_3__.PRICE_TABLE), _defineProperty(_prices, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_GOLD, _constants__WEBPACK_IMPORTED_MODULE_3__.PRICE_TABLE_GOLD), _prices);
+                tierIds = (_tierIds = {}, _defineProperty(_tierIds, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_CELLAR, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_CELLAR_ID), _defineProperty(_tierIds, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_ID), _defineProperty(_tierIds, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_GOLD, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_GOLD_ID), _defineProperty(_tierIds, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_FRENS, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_FRENS_ID), _tierIds);
+                price = ethers__WEBPACK_IMPORTED_MODULE_8__.parseUnits(prices[tierName].toString(), 'ether');
+                tierId = tierIds[tierName];
+                _context6.prev = 11;
+
+                if (![_constants__WEBPACK_IMPORTED_MODULE_3__.TIER_CELLAR, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE].includes(tierName)) {
+                  _context6.next = 16;
+                  break;
+                }
+
+                _context6.next = 15;
+                return contract.mint(tierId, {
+                  value: price
+                });
+
+              case 15:
+                tx = _context6.sent;
+
+              case 16:
+                if (!(tierName === _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_GOLD)) {
+                  _context6.next = 27;
+                  break;
+                }
+
+                _context6.next = 19;
+                return signer.getAddress();
+
+              case 19:
+                pkey = _context6.sent;
+                _context6.next = 22;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("proof/".concat(pkey));
+
+              case 22:
+                _yield$axios$get2 = _context6.sent;
+                proof = _yield$axios$get2.data.proof;
+                _context6.next = 26;
+                return contract.mintGold(proof, {
+                  value: price
+                });
+
+              case 26:
+                tx = _context6.sent;
+
+              case 27:
+                _context6.next = 29;
+                return tx.wait();
+
+              case 29:
+                _yield$tx$wait = _context6.sent;
+                transactionHash = _yield$tx$wait.transactionHash;
+                console.log(transactionHash);
+
+                _this6.openModal('Mint successful!', "Your NFT should take a little time to appear in your wallet. You can verify and follow the transaction by clicking <a href=\"".concat(_this6.txLink(transactionHash), "\" target=\"_blank\" noopener noreferrer class=\"underline underline-offset-1\">here</a>."), '🎉', 'bg-green-100');
+
+                _context6.next = 35;
+                return _this6.fetchMintedPerTiers();
+
+              case 35:
+                _context6.next = 42;
+                break;
+
+              case 37:
+                _context6.prev = 37;
+                _context6.t0 = _context6["catch"](11);
+                console.log(_context6.t0);
+                message = _this6.extractErrorMessage(_context6.t0);
+
+                _this6.openModal('Minting failed', message, '🙁', 'bg-red-100');
+
+              case 42:
+                _context6.prev = 42;
+                _this6.isMinting = false;
+                return _context6.finish(42);
+
+              case 45:
               case "end":
                 return _context6.stop();
             }
           }
-        }, _callee6);
+        }, _callee6, null, [[11, 37, 42, 45]]);
       }))();
     },
-    fetchAvailabilities: function fetchAvailabilities() {
+    airdrop: function airdrop() {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
           while (1) {
@@ -44173,138 +44305,17 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)({
         }, _callee7);
       }))();
     },
-    mint: function mint(tierName) {
-      var _this6 = this;
-
+    withdraw: function withdraw() {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8() {
-        var _prices, _tierIds;
-
-        var prices, tierIds, price, tierId, tx, pkey, _yield$axios$get2, proof, _yield$tx$wait, transactionHash, message;
-
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
-                if (!_this6.isMinting) {
-                  _context8.next = 2;
-                  break;
-                }
-
-                return _context8.abrupt("return");
-
-              case 2:
-                if ([_constants__WEBPACK_IMPORTED_MODULE_3__.TIER_CELLAR, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_GOLD].includes(tierName)) {
-                  _context8.next = 4;
-                  break;
-                }
-
-                throw new Error('Invalid tier name');
-
-              case 4:
-                _this6.isMinting = true;
-                console.log("Attempting to mint tier \"".concat(tierName, "\""));
-                prices = (_prices = {}, _defineProperty(_prices, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_CELLAR, _constants__WEBPACK_IMPORTED_MODULE_3__.PRICE_CELLAR), _defineProperty(_prices, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE, _constants__WEBPACK_IMPORTED_MODULE_3__.PRICE_TABLE), _defineProperty(_prices, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_GOLD, _constants__WEBPACK_IMPORTED_MODULE_3__.PRICE_TABLE_GOLD), _prices);
-                tierIds = (_tierIds = {}, _defineProperty(_tierIds, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_CELLAR, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_CELLAR_ID), _defineProperty(_tierIds, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_ID), _defineProperty(_tierIds, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_GOLD, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_GOLD_ID), _defineProperty(_tierIds, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_FRENS, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_FRENS_ID), _tierIds);
-                price = ethers__WEBPACK_IMPORTED_MODULE_7__.parseUnits(prices[tierName].toString(), 'ether');
-                tierId = tierIds[tierName];
-                _context8.prev = 10;
-
-                if (![_constants__WEBPACK_IMPORTED_MODULE_3__.TIER_CELLAR, _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE].includes(tierName)) {
-                  _context8.next = 15;
-                  break;
-                }
-
-                _context8.next = 14;
-                return contract.mint(tierId, {
-                  value: price
-                });
-
-              case 14:
-                tx = _context8.sent;
-
-              case 15:
-                if (!(tierName === _constants__WEBPACK_IMPORTED_MODULE_3__.TIER_TABLE_GOLD)) {
-                  _context8.next = 26;
-                  break;
-                }
-
-                _context8.next = 18;
-                return signer.getAddress();
-
-              case 18:
-                pkey = _context8.sent;
-                _context8.next = 21;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("proof/".concat(pkey));
-
-              case 21:
-                _yield$axios$get2 = _context8.sent;
-                proof = _yield$axios$get2.data.proof;
-                _context8.next = 25;
-                return contract.mintGold(proof, {
-                  value: price
-                });
-
-              case 25:
-                tx = _context8.sent;
-
-              case 26:
-                _context8.next = 28;
-                return tx.wait();
-
-              case 28:
-                _yield$tx$wait = _context8.sent;
-                transactionHash = _yield$tx$wait.transactionHash;
-                console.log(transactionHash);
-                _context8.next = 33;
-                return _this6.fetchMintedPerTiers();
-
-              case 33:
-                _context8.next = 39;
-                break;
-
-              case 35:
-                _context8.prev = 35;
-                _context8.t0 = _context8["catch"](10);
-                message = _this6.extractErrorMessage(_context8.t0);
-                alert(message);
-
-              case 39:
-                _context8.prev = 39;
-                _this6.isMinting = false;
-                return _context8.finish(39);
-
-              case 42:
               case "end":
                 return _context8.stop();
             }
           }
-        }, _callee8, null, [[10, 35, 39, 42]]);
-      }))();
-    },
-    airdrop: function airdrop() {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
-          while (1) {
-            switch (_context9.prev = _context9.next) {
-              case 0:
-              case "end":
-                return _context9.stop();
-            }
-          }
-        }, _callee9);
-      }))();
-    },
-    withdraw: function withdraw() {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
-          while (1) {
-            switch (_context10.prev = _context10.next) {
-              case 0:
-              case "end":
-                return _context10.stop();
-            }
-          }
-        }, _callee10);
+        }, _callee8);
       }))();
     },
     extractErrorMessage: function extractErrorMessage(error) {
@@ -44334,6 +44345,13 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.defineStore)({
       }
 
       return _constants__WEBPACK_IMPORTED_MODULE_3__.ERR_MSG_UNKNOWN;
+    },
+    txLink: function txLink(hash) {
+      if (['rinkeby', 'homestead'].includes(this.network)) {
+        return "https://".concat(this.network === 'rinkeby' ? 'rinkeby.' : '', "etherscan.io/tx/").concat(hash);
+      }
+
+      return '';
     }
   }
 });
@@ -44357,15 +44375,27 @@ var useModalStore = (0,pinia__WEBPACK_IMPORTED_MODULE_0__.defineStore)({
   id: 'modal',
   state: function state() {
     return {
-      isOpen: false
+      isOpen: false,
+      title: '',
+      body: '',
+      emoji: '',
+      color: ''
     };
   },
   actions: {
-    openModal: function openModal() {
+    openModal: function openModal(title, body, emoji, color) {
       this.isOpen = true;
+      this.title = title;
+      this.body = body;
+      this.emoji = emoji;
+      this.color = color;
     },
     closeModal: function closeModal() {
       this.isOpen = false;
+      this.title = '';
+      this.body = '';
+      this.emoji = '';
+      this.color = '';
     }
   }
 });
