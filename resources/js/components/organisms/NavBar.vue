@@ -2,6 +2,8 @@
 import { onMounted, onUnmounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { FOOTER } from '../../constants';
+import { useRoute } from 'vue-router';
+import { watch, ref } from 'vue';
 
 import {
   Popover,
@@ -36,6 +38,16 @@ import { useScrollStore } from '../../stores/scroll';
 const { scrollTo } = useScrollStore();
 const { initBlockchain, connectWallet } = useBlockchainStore();
 const { isWalletConnected, isReady } = storeToRefs(useBlockchainStore());
+const route = useRoute();
+
+const isFullNav = ref(true);
+
+watch(
+  () => route.name,
+  () => {
+    isFullNav.value = route.name.toLowerCase() !== 'terms'
+  }
+)
 
 const menuItems = [
   {
@@ -103,6 +115,7 @@ const attemptConnect = async () => {
         </div>
         <PopoverGroup as="nav" class="hidden md:flex space-x-10">
           <a
+            v-if="isFullNav"
             v-for="item in menuItems"
             @click.prevent="scrollTo(item.to)"
             href="#"
@@ -111,8 +124,15 @@ const attemptConnect = async () => {
           >
             {{ item.name }}
           </a>
+          <a
+            v-else
+            href="/"
+            class="text-lg font-medium text-gray-700 hover:text-gray-900 font-serif"
+          >
+            Back to mint site
+          </a>
         </PopoverGroup>
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0" v-if="isFullNav">
           <Button
             v-if="isReady"
             @click.prevent="attemptConnect"
@@ -144,6 +164,7 @@ const attemptConnect = async () => {
             <div class="mt-6">
               <nav class="grid gap-y-8">
                 <a
+                  v-if="isFullNav"
                   v-for="item in menuItems"
                   :key="item.name"
                   @click="scrollTo(item.to)"
@@ -153,6 +174,13 @@ const attemptConnect = async () => {
                   <span class="ml-3 text-base font-medium text-gray-900">
                     {{ item.name }}
                   </span>
+                </a>
+                <a
+                  v-else
+                  href="/"
+                  class="text-lg font-medium text-gray-700 hover:text-gray-900 font-serif"
+                >
+                  Back to mint site
                 </a>
               </nav>
             </div>

@@ -602,6 +602,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-10 {
   margin-bottom: 2.5rem;
 }
+.mt-40 {
+  margin-top: 10rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.mb-12 {
+  margin-bottom: 3rem;
+}
 .block {
   display: block;
 }
@@ -616,6 +625,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .grid {
   display: grid;
+}
+.contents {
+  display: contents;
 }
 .hidden {
   display: none;
@@ -1660,6 +1672,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:pb-0 {
     padding-bottom: 0px;
+  }
+
+  .lg\:pt-40 {
+    padding-top: 10rem;
   }
 
   .lg\:text-left {
