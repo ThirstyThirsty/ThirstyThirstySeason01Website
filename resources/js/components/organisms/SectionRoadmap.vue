@@ -35,7 +35,7 @@
         <ol class="border-l-2 border-purple-600 w-3/4 m-auto">
           <li>
             <div class="flex flex-start items-center">
-              <div class="bg-purple-600 w-4 h-4 flex items-center justify-center rounded-full -ml-2 mr-3 -mt-2"></div>
+              <div class="tt-bg-purple w-4 h-4 flex items-center justify-center rounded-full -ml-2 mr-3 -mt-2"></div>
               <h4 class="text-gray-800 font-semibold text-xl -mt-2"><span class="text-gray-500">April 2022</span> - Cohort 1 begins</h4>
             </div>
             <div class="ml-6 mb-6 pb-6">
@@ -44,7 +44,7 @@
           </li>
           <li>
             <div class="flex flex-start items-center">
-              <div class="bg-purple-600 w-4 h-4 flex items-center justify-center rounded-full -ml-2 mr-3 -mt-2"></div>
+              <div class="tt-bg-purple w-4 h-4 flex items-center justify-center rounded-full -ml-2 mr-3 -mt-2"></div>
               <h4 class="text-gray-800 font-semibold text-xl -mt-2"><span class="text-gray-500">June 2022</span> - Release of 888 crowdfunding Membership Wine NFTs</h4>
             </div>
             <div class="ml-6 mb-6 pb-6">
@@ -53,7 +53,7 @@
           </li>
           <li>
             <div class="flex flex-start items-center">
-              <div class="bg-purple-600 w-4 h-4 flex items-center justify-center rounded-full -ml-2 mr-3 -mt-2"></div>
+              <div class="tt-bg-purple w-4 h-4 flex items-center justify-center rounded-full -ml-2 mr-3 -mt-2"></div>
               <h4 class="text-gray-800 font-semibold text-xl -mt-2"><span class="text-gray-500">August 2022</span> - Special travel NFT release</h4>
             </div>
             <div class="ml-6 mb-6 pb-6">
@@ -62,7 +62,7 @@
           </li>
           <li>
             <div class="flex flex-start items-center">
-              <div class="bg-purple-600 w-4 h-4 flex items-center justify-center rounded-full -ml-2 mr-3 -mt-2"></div>
+              <div class="tt-bg-purple w-4 h-4 flex items-center justify-center rounded-full -ml-2 mr-3 -mt-2"></div>
               <h4 class="text-gray-800 font-semibold text-xl -mt-2"><span class="text-gray-500">Fall 2022</span> - Our membership network begins</h4>
             </div>
             <div class="ml-6 mb-6 pb-6">
@@ -71,7 +71,7 @@
           </li>
           <li>
             <div class="flex flex-start items-center">
-              <div class="bg-purple-600 w-4 h-4 flex items-center justify-center rounded-full -ml-2 mr-3 mt-1"></div>
+              <div class="tt-bg-purple w-4 h-4 flex items-center justify-center rounded-full -ml-2 mr-3 mt-1"></div>
               <h4 class="text-gray-800 font-semibold text-xl -mt-2">...</h4>
             </div>
           </li>
