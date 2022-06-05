@@ -42977,7 +42977,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "mt-3 max-w-md mx-auto text-lg text-gray-700 sm:text-xl md:mt-5 md:max-w-3xl"
-}, " Celebrating ancestral agriculture through food, wine, & earth adventures. Let’s regenerate Mother Earth deliciously, together. ", -1
+}, " An ancestral remembrance project disguised as the coolest food and wine club on Earth. Regenerate Mother Earth deliciously. 888 Membership NFTs. ", -1
 /* HOISTED */
 );
 
@@ -42991,7 +42991,7 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "absolute inset-0 w-full h-full object-cover",
-  src: "/images/4F33D5A3-EC29-4CF2-A2D8-8DFF05C347C2_1_201_a.jpg",
+  src: "/images/20210919_TT_HARVEST_156.jpeg",
   alt: ""
 })], -1
 /* HOISTED */
