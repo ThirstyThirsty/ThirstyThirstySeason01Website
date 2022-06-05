@@ -14,7 +14,11 @@ import {
   MAX_TABLE
 } from '../../constants';
 
-const { isGoldlisted, numMintedCellar, numMintedTable } = storeToRefs(useBlockchainStore());
+const {
+  isGoldlisted,
+  numMintedCellar,
+  numMintedTable
+} = storeToRefs(useBlockchainStore());
 
 const tier1 = [
   '1 bottle of Collector Pinot Noir exclusive to Thirsty Thirsty, made by Phalen Farm (Rajat Parr) with wine label art by Marleigh Culver',
@@ -39,10 +43,6 @@ const tier2 = [
 
 const { isMinting, canMint } = storeToRefs(useBlockchainStore());
 const { mint } = useBlockchainStore();
-
-const priceTable = computed(() => {
-  return isGoldlisted ? PRICE_TABLE_GOLD : PRICE_TABLE
-});
 </script>
 
 <template>
@@ -85,7 +85,7 @@ const priceTable = computed(() => {
           >
             <template #title>Tier 2 - "Table"</template>
             <template #availability>{{ MAX_TABLE - numMintedTable }}</template>
-            <template #price>{{ priceTable }}</template>
+            <template #price>{{ isGoldlisted ? PRICE_TABLE_GOLD : PRICE_TABLE }}</template>
           </BannerTier>
         </div>
       </div>

@@ -1,5 +1,8 @@
 <script setup>
 import Button from '../atoms/Button';
+import { useScrollStore } from '../../stores/scroll';
+
+const { scrollTo } = useScrollStore();
 </script>
 
 <template>
@@ -13,7 +16,12 @@ import Button from '../atoms/Button';
           Celebrating ancestral agriculture through food, wine, & earth adventures. Let’s regenerate Mother Earth deliciously, together.
         </p>
         <div class="mt-10 sm:flex sm:justify-center">
-          <Button href="#" primary>Mint Membership NFT</Button>
+          <Button
+            primary
+            @click="scrollTo('tier')"
+          >
+            Mint Membership NFT
+          </Button>
         </div>
       </div>
     </div>

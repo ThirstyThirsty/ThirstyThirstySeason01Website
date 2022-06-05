@@ -10,14 +10,8 @@ import {
   TIER_CELLAR,
   TIER_TABLE,
   TIER_TABLE_GOLD,
-  TIER_FRENS,
-  TIER_CELLAR_ID,
-  TIER_TABLE_ID,
-  TIER_TABLE_GOLD_ID,
-  TIER_FRENS_ID,
   ERR_MSG_FUND,
   ERR_MSG_MINT,
-  ERR_MSG_NOT_STARTED,
   ERR_MSG_CLAIMED,
   ERR_MSG_UNKNOWN
 } from '../constants';
@@ -66,11 +60,13 @@ export const useBlockchainStore = defineStore({
       contract = new ethers.Contract(CONTRACT_ADDR, Contract.abi, signer);
 
       const { chainId, name } = await provider.getNetwork();
-      if (chainId === 1337 && !name) {
+      if (chainId === 1337 || name === 'unknown') {
         this.network = 'localhost';
       } else {
         this.network = name;
       }
+
+      console.log(`[INFO] Connected on network ${this.network}`);
 
       this.isInitialized = true;
       this.publicKey = await this.getAccountPubKey();
@@ -134,20 +130,17 @@ export const useBlockchainStore = defineStore({
         [TIER_TABLE_GOLD]: PRICE_TABLE_GOLD
       };
 
-      const tierIds = {
-        [TIER_CELLAR]: TIER_CELLAR_ID,
-        [TIER_TABLE]: TIER_TABLE_ID,
-        [TIER_TABLE_GOLD]: TIER_TABLE_GOLD_ID,
-        [TIER_FRENS]: TIER_FRENS_ID
-      };
-
       const price = ethers.utils.parseUnits(prices[tierName].toString(), 'ether');
-      const tierId = tierIds[tierName];
 
       try {
         let tx;
-        if ([TIER_CELLAR, TIER_TABLE].includes(tierName)) {
-          tx = await contract.mint(tierId, { value: price });
+
+        if (tierName === TIER_CELLAR) {
+          tx = await contract.mintCellar({ value: price });
+        }
+
+        if (tierName === TIER_TABLE) {
+          tx = await contract.mintTable({ value: price });
         }
 
         if (tierName === TIER_TABLE_GOLD) {
@@ -156,8 +149,7 @@ export const useBlockchainStore = defineStore({
           tx = await contract.mintGold(proof, { value: price });
         }
 
-        const { transactionHash } = await tx.wait()
-        console.log(transactionHash);
+        const { transactionHash } = await tx.wait();
 
         this.openModal(
           'Mint successful!',
@@ -175,14 +167,6 @@ export const useBlockchainStore = defineStore({
       }
     },
 
-    async airdrop() {
-
-    },
-
-    async withdraw() {
-
-    },
-
     extractErrorMessage(error) {
       const message = error.data ? error.data.message : error.toString()
 
@@ -198,11 +182,8 @@ export const useBlockchainStore = defineStore({
         return ERR_MSG_MINT;
       }
       if (message && message.toLowerCase().includes('address has already claimed')) {
+        this.isGoldlisted = false;
         return ERR_MSG_CLAIMED;
-      }
-      if (message && message.toLowerCase().includes('not yet started')) {
-        this.canMint = false;
-        return ERR_MSG_NOT_STARTED;
       }
       return ERR_MSG_UNKNOWN;
     },
