@@ -43045,7 +43045,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "text-3xl font-extrabold tracking-tight sm:text-4xl"
 }, "Our Partners"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-xl text-gray-900"
-}, " Our partnerships with leaders in the food and bev space will constantly evolve. We are proud and humbled to be working with an inspiring group of aligned organizations for our launch. As we grow, we aim to bring more folks into the space in a safe, nurturing, and organic way. ")], -1
+}, " We are proud to build with an inspiring group of hospitality leaders, farmers, and land protectors for our launch. As we grow, more locations and experiences will open up to our Members. ")], -1
 /* HOISTED */
 );
 
@@ -43109,11 +43109,11 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "underline underline-offset-1",
   noreferrer: "",
   noopener: ""
-}, "Assembly / Comedor", -1
+}, "Assembly Hospitality", -1
 /* HOISTED */
 );
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" as a prominent force in the Austin hospitality scene. Celebrity chef Philip Speer of Comedor has made an impact by sourcing from small-scale sustainable farmers around Austin. During the pandemic they shifted to direct-to-consumer produce boxes accompanied by chef cooking videos. ");
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" is a prominent force in the Austin hospitality scene known for their restaurant Comedor and their cocktail bar, Garage. They are known for their relationships with local, small-scale growers around Texas and bringing it all together in world-class architectural environments. ");
 
 var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Ediciones");
 
@@ -43123,7 +43123,7 @@ var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "class": "underline underline-offset-1",
   noreferrer: "",
   noopener: ""
-}, "Ediciones", -1
+}, "Édiciones", -1
 /* HOISTED */
 );
 

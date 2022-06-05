@@ -9,7 +9,7 @@ import PartnerBanner from './PartnerBanner';
         <div class="space-y-5 sm:space-y-4">
           <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Our Partners</h2>
           <p class="text-xl text-gray-900">
-            Our partnerships with leaders in the food and bev space will constantly evolve. We are proud and humbled to be working with an inspiring group of aligned organizations for our launch. As we grow, we aim to bring more folks into the space in a safe, nurturing, and organic way.
+            We are proud to build with an inspiring group of hospitality leaders, farmers, and land protectors for our launch. As we grow, more locations and experiences will open up to our Members.
           </p>
         </div>
         <div class="lg:col-span-2">
@@ -33,14 +33,14 @@ import PartnerBanner from './PartnerBanner';
             <PartnerBanner>
               <template #name>Assembly / Comedor</template>
               <template #bio>
-                <a href="https://assembly.co/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Assembly / Comedor</a> as a prominent force in the Austin hospitality scene. Celebrity chef Philip Speer of Comedor has made an impact by sourcing from small-scale sustainable farmers around Austin. During the pandemic they shifted to direct-to-consumer produce boxes accompanied by chef cooking videos.
+                <a href="https://assembly.co/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Assembly Hospitality</a> is a prominent force in the Austin hospitality scene known for their restaurant Comedor and their cocktail bar, Garage. They are known for their relationships with local, small-scale growers around Texas and bringing it all together in world-class architectural environments.
               </template>
             </PartnerBanner>
 
             <PartnerBanner>
               <template #name>Ediciones</template>
               <template #bio>
-                <a href="https://www.ediciones.nyc/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Ediciones</a> is a queer food studio based in NYC. Recognized for food sovereignty work in Brooklyn throughout the pandemic, and for throwing incredible food parties.
+                <a href="https://www.ediciones.nyc/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Édiciones</a> is a queer food studio based in NYC. Recognized for food sovereignty work in Brooklyn throughout the pandemic, and for throwing incredible food parties.
               </template>
             </PartnerBanner>
 
