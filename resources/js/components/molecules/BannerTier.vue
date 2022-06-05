@@ -52,6 +52,7 @@ const tier = computed(() => {
         <span class="ml-10 text-gray-400">
           <slot name="availability" /> available
         </span>
+        <slot name="extra" />
       </h3>
       <div class="mt-8">
         <div class="flex items-center">

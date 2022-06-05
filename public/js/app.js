@@ -42175,8 +42175,8 @@ __webpack_require__.r(__webpack_exports__);
         numMintedCellar = _storeToRefs.numMintedCellar,
         numMintedTable = _storeToRefs.numMintedTable;
 
-    var tier1 = ['1 bottle of Collector Pinot Noir exclusive to Thirsty Thirsty, made by Phalen Farm (Rajat Parr) with wine label art by Marleigh Culver', 'Launch Party access to our NFT NYC lunch, with partner Édiciones', 'VIP dining access with Assembly Hospitality and Id Est Hospitality', 'VIP Winery access at Phelan Farm and Two Eighty Project vineyards', 'VIP Private Chef access with Édiciones', 'First access to TT travel experiences: <em>Harvest Experience, Ceremony in Amazonas...</em>', 'Future TT event access/member benefits for NFT holders', 'More to unlock with each future Cohort'];
-    var tier2 = ['Fine art NFT by Marleigh Culver', 'Launch Party access to NFT NYC lunch with partner Édiciones', 'VIP dining access at Assembly Hospitality  and Id Est Hospitality restaurants', 'VIP Winery access at Phelan Farm and Two Eighty Project vineyards', 'First access to TT travel experiences: <em>Harvest Experience, Ceremony in Amazonas...</em>', 'Future TT event access/member benefits for NFT holders', 'More nodes to unlock with each future Cohort'];
+    var tier1 = ['1 bottle of Collector Pinot Noir <strong>EXCLUSIVE</strong> to Thirsty Thirsty, <a href="https://phelanfarm.com/" target="_blank" noreferrer noopener>made by Phelan Farm (Rajat Parr)</a> + NFT art by <a href="https://www.marleighculver.com/" target="_blank" noreferrer noopener>Marleigh Culver</a> as the wine label', 'Fine art NFT by <a href="https://www.marleighculver.com/" target="_blank" nopener noreferrer>Marleigh Culver</a>', 'Launch Party access to our NFT NYC lunch', 'VIP dining access at top restaurants', 'VIP Winery access', 'VIP Private Chef access', 'Digital workshops and healings', 'First access to TT travel experiences (ex: <em>Harvest Experience, Ceremony in Amazonas</em>)', 'Future TT event access/member benefits for NFT holders'];
+    var tier2 = ['Fine art NFT by <a href="https://www.marleighculver.com/" target="_blank" nopener noreferrer>Marleigh Culver</a>', 'Launch Party access to our NFT NYC lunch', 'VIP dining access at top restaurants', 'VIP Winery access', 'VIP Private Chef access', 'Digital workshops and healings', 'First access to TT travel experiences (ex: <em>Harvest Experience, Ceremony in Amazonas</em>)', 'Future TT event access/member benefits for NFT holders'];
 
     var _storeToRefs2 = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.storeToRefs)((0,_stores_blockchain__WEBPACK_IMPORTED_MODULE_2__.useBlockchainStore)()),
         isMinting = _storeToRefs2.isMinting,
@@ -42811,7 +42811,7 @@ var _hoisted_17 = {
 var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Mint ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "title")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "availability"), _hoisted_6])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_9, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.benefits, function (feature) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "title")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "availability"), _hoisted_6]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "extra")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_9, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.benefits, function (feature) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
       key: feature,
       "class": "flex items-start lg:col-span-1"
@@ -43318,7 +43318,7 @@ var _hoisted_1 = {
   id: "tier"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"pt-12 sm:pt-16 lg:pt-20\"><div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center\"><h2 class=\"text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl\">NFT Tier Breakdown</h2><p class=\"m-auto mt-4 text-xl text-gray-900 w-3/4\"> Thirsty Thirsty DAO members will enjoy unique dining experiences featuring the best restaurants that are committed to sourcing the best products. The best products are grown by small-scale growers and winemakers who work pulling from Ancestral farming techniques to strengthen their land’s biodiversity. Thirsty Thirsty NFT holders become VIPs within our food and beverage network. Our NFT acts as a membership passport unlocking epic dining experiences and access to collector fine wines. </p></div></div></div>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"pt-12 sm:pt-16 lg:pt-20\"><div class=\"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8\"><div class=\"text-center\"><h2 class=\"text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl\">NFT Tier Breakdown</h2><p class=\"m-auto mt-4 text-xl text-gray-900 w-3/4\"> Thirsty Thirsty members enjoy unique dining experiences featuring the best restaurants that are committed to Ancestral Agricultural wisdom. Members luxuriate in these experiences while building relationships with the inspiring people behind their food, and connecting with our planet’s deep knowledge. Thirsty Thirsty NFT holders become XPs (Extraordinary Patrons) within our food and beverage network. Our NFT is a membership passport that unlocks epic dining experiences and access to collector fine wines. </p></div></div></div>", 1);
 
 var _hoisted_3 = {
   "class": "mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-0"
@@ -43339,7 +43339,15 @@ var _hoisted_6 = {
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Tier 1 - \"Cellar\"");
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Tier 2 - \"Table\"");
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-sm"
+}, "A maximum of six Tier 1 NFTs may be minted per person.", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Tier 2 - \"Table\"");
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container px-5 py-2 mx-auto lg:pt-24 lg:px-32\"><div class=\"flex flex-wrap -m-1 md:-m-2\"><div class=\"flex flex-wrap\"><div class=\"w-full p-1 md:p-2\"><img alt=\"gallery\" class=\"block object-cover object-center w-full h-full\" src=\"/images/3042B731-4B9D-4BC0-B61F-6566702A1C69_1_105_c.jpeg\"></div></div></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BannerTier"], {
@@ -43353,6 +43361,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     title: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_7];
+    }),
+    extra: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_8];
     }),
     availability: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.MAX_CELLAR - $setup.numMintedCellar), 1
@@ -43378,7 +43389,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     disabled: $setup.isMinting || !$setup.canMint
   }, {
     title: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_8];
+      return [_hoisted_9];
     }),
     availability: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.MAX_TABLE - $setup.numMintedTable), 1
@@ -43395,7 +43406,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["onMint", "tier-name", "goldlisted", "loading", "disabled"])])])])]);
+  , ["onMint", "tier-name", "goldlisted", "loading", "disabled"]), _hoisted_10])])])]);
 }
 
 /***/ }),

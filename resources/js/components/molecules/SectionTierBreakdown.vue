@@ -21,24 +21,26 @@ const {
 } = storeToRefs(useBlockchainStore());
 
 const tier1 = [
-  '1 bottle of Collector Pinot Noir exclusive to Thirsty Thirsty, made by Phalen Farm (Rajat Parr) with wine label art by Marleigh Culver',
-  'Launch Party access to our NFT NYC lunch, with partner Édiciones',
-  'VIP dining access with Assembly Hospitality and Id Est Hospitality',
-  'VIP Winery access at Phelan Farm and Two Eighty Project vineyards',
-  'VIP Private Chef access with Édiciones',
-  'First access to TT travel experiences: <em>Harvest Experience, Ceremony in Amazonas...</em>',
+  '1 bottle of Collector Pinot Noir <strong>EXCLUSIVE</strong> to Thirsty Thirsty, <a href="https://phelanfarm.com/" target="_blank" noreferrer noopener>made by Phelan Farm (Rajat Parr)</a> + NFT art by <a href="https://www.marleighculver.com/" target="_blank" noreferrer noopener>Marleigh Culver</a> as the wine label',
+  'Fine art NFT by <a href="https://www.marleighculver.com/" target="_blank" nopener noreferrer>Marleigh Culver</a>',
+  'Launch Party access to our NFT NYC lunch',
+  'VIP dining access at top restaurants',
+  'VIP Winery access',
+  'VIP Private Chef access',
+  'Digital workshops and healings',
+  'First access to TT travel experiences (ex: <em>Harvest Experience, Ceremony in Amazonas</em>)',
   'Future TT event access/member benefits for NFT holders',
-  'More to unlock with each future Cohort'
 ];
 
 const tier2 = [
-  'Fine art NFT by Marleigh Culver',
-  'Launch Party access to NFT NYC lunch with partner Édiciones',
-  'VIP dining access at Assembly Hospitality  and Id Est Hospitality restaurants',
-  'VIP Winery access at Phelan Farm and Two Eighty Project vineyards',
-  'First access to TT travel experiences: <em>Harvest Experience, Ceremony in Amazonas...</em>',
+  'Fine art NFT by <a href="https://www.marleighculver.com/" target="_blank" nopener noreferrer>Marleigh Culver</a>',
+  'Launch Party access to our NFT NYC lunch',
+  'VIP dining access at top restaurants',
+  'VIP Winery access',
+  'VIP Private Chef access',
+  'Digital workshops and healings',
+  'First access to TT travel experiences (ex: <em>Harvest Experience, Ceremony in Amazonas</em>)',
   'Future TT event access/member benefits for NFT holders',
-  'More nodes to unlock with each future Cohort'
 ];
 
 const { isMinting, canMint } = storeToRefs(useBlockchainStore());
@@ -52,7 +54,7 @@ const { mint } = useBlockchainStore();
         <div class="text-center">
           <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">NFT Tier Breakdown</h2>
           <p class="m-auto mt-4 text-xl text-gray-900 w-3/4">
-            Thirsty Thirsty DAO members will enjoy unique dining experiences featuring the best restaurants that are committed to sourcing the best products. The best products are grown by small-scale growers and winemakers who work pulling from Ancestral farming techniques to strengthen their land’s biodiversity. Thirsty Thirsty NFT holders become VIPs within our food and beverage network. Our NFT acts as a membership passport unlocking epic dining experiences and access to collector fine wines.
+            Thirsty Thirsty members enjoy unique dining experiences featuring the best restaurants that are committed to Ancestral Agricultural wisdom. Members luxuriate in these experiences while building relationships with the inspiring people behind their food, and connecting with our planet’s deep knowledge. Thirsty Thirsty NFT holders become XPs (Extraordinary Patrons) within our food and beverage network. Our NFT is a membership passport that unlocks epic dining experiences and access to collector fine wines.
           </p>
         </div>
       </div>
@@ -71,6 +73,9 @@ const { mint } = useBlockchainStore();
             class="mb-4"
           >
             <template #title>Tier 1 - "Cellar"</template>
+            <template #extra>
+              <p class="text-sm">A maximum of six Tier 1 NFTs may be minted per person.</p>
+            </template>
             <template #availability>{{ MAX_CELLAR - numMintedCellar }}</template>
             <template #price>{{ PRICE_CELLAR }}</template>
           </BannerTier>
@@ -87,6 +92,17 @@ const { mint } = useBlockchainStore();
             <template #availability>{{ MAX_TABLE - numMintedTable }}</template>
             <template #price>{{ isGoldlisted ? PRICE_TABLE_GOLD : PRICE_TABLE }}</template>
           </BannerTier>
+
+          <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
+            <div class="flex flex-wrap -m-1 md:-m-2">
+              <div class="flex flex-wrap">
+                <div class="w-full p-1 md:p-2">
+                  <img alt="gallery" class="block object-cover object-center w-full h-full"
+                    src="/images/3042B731-4B9D-4BC0-B61F-6566702A1C69_1_105_c.jpeg">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
