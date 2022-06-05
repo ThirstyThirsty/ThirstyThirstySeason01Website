@@ -44246,7 +44246,7 @@ var CONTRACT_ADDR = function () {
     // Rinkeby (testnet)
 
     case 'thirstythirsty-nft-staging.herokuapp.com':
-      return '0x59D6DcD48313d28cbe4F60E80eb5F88B99bc81A2';
+      return '0x4413Ce6eed4e5C5a79D4a4547d3EB353F449dFc1';
     // Localhost (development)
 
     case 'localhost':
