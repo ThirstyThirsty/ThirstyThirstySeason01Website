@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted } from 'vue';
 import { storeToRefs } from 'pinia';
+import { FOOTER } from '../../constants';
 
 import {
   Popover,
@@ -72,33 +73,6 @@ const menuItems = [
     href:'#',
     to: 'team'
   },
-];
-const footerItem = [
-  {
-    name: 'Discord',
-    description: 'Discord',
-    href: 'https://discord.gg/xZ2Ue8qKGp'
-  },
-  {
-    name: 'Twitter',
-    description: 'Twitter',
-    href: 'https://twitter.com/thirstythirsty8'
-  },
-  {
-    name: 'Instagram',
-    description: 'Instagram',
-    href: 'https://www.instagram.com/thirstythirsty/'
-  },
-  {
-    name: 'Website',
-    description: 'Website',
-    href: 'https://www.thirstythirsty.org/'
-  },
-];
-const recentPosts = [
-  { id: 1, name: 'Boost your conversion rate', href: '#' },
-  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-  { id: 3, name: 'Improve your customer experience', href: '#' },
 ];
 
 onMounted(async () => {
@@ -186,10 +160,12 @@ const attemptConnect = async () => {
           <div class="py-6 px-5 space-y-6">
             <div class="grid grid-cols-2 gap-y-4 gap-x-8">
               <a
-                v-for="item in footerItem"
+                v-for="item in FOOTER"
                 :key="item.name"
                 :href="item.href"
-                noopener noreferrer
+                :target="item.target"
+                :noopener="!!item.target == '_blank'"
+                :noreferrer="!!item.target == '_blank'"
                 class="-m-3 p-3 flex items-center rounded-md cursor-pointer text-base font-medium text-gray-900 hover:text-gray-700"
               >
                 {{ item.name }}

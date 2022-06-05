@@ -35,3 +35,36 @@ export const CONTRACT_ADDR = (() => {
       return '';
   }
 })();
+
+export const FOOTER = [
+  {
+    name: 'Discord',
+    description: 'Discord',
+    target: '_blank',
+    href: 'https://discord.gg/xZ2Ue8qKGp'
+  },
+  {
+    name: 'Twitter',
+    description: 'Twitter',
+    target: '_blank',
+    href: 'https://twitter.com/thirstythirsty8'
+  },
+  {
+    name: 'Instagram',
+    description: 'Instagram',
+    target: '_blank',
+    href: 'https://www.instagram.com/thirstythirsty/'
+  },
+  {
+    name: 'Website',
+    description: 'Website',
+    target: '_blank',
+    href: 'https://www.thirstythirsty.org/'
+  },
+  {
+    name: 'Terms and Conditions',
+    target: '_self',
+    description: 'Terms and Conditions',
+    href: '/terms'
+  }
+];
