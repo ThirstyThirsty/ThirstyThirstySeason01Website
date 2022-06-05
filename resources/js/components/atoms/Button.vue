@@ -18,7 +18,7 @@ const style = computed(() => {
   let css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md cursor-pointer disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed ';
 
   if (attrsNames.includes('primary')) {
-    css += 'text-white bg-purple-600 hover:bg-purple-700 ';
+    css += 'text-white tt-bg-purple hover:bg-purple-700 ';
   } else if (attrsNames.includes('ghost')) {
     css += 'text-gray-900 border border-gray-600 ';
   } else {

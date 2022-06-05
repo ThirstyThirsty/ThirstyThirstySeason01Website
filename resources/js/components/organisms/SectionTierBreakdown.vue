@@ -1,5 +1,5 @@
 <script setup>
-import BannerTier from './BannerTier';
+import BannerTier from '../molecules/BannerTier';
 import { storeToRefs } from 'pinia';
 import { computed } from 'vue';
 import { useBlockchainStore } from '../../stores/blockchain';

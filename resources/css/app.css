@@ -4,8 +4,8 @@
     --color-green: #c8fb53;
     --color-redish: #da806d;
     --color-pinkish: #ff0057;
-    --color-purple: #958d51;
-    --color-camo: #9748fb;
+    --color-purple: #9748fb;
+    --color-camo: #958d51;
     --color-mauve: #ad506f;
 }
 
@@ -27,4 +27,8 @@ body {
 
 .tt-bg-purple {
     background-color: var(--color-purple);
+}
+
+.tt-bg-camo {
+    background-color: var(--color-camo);
 }

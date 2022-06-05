@@ -1,5 +1,5 @@
 <script setup>
-import PartnerBanner from './PartnerBanner';
+import BannerPartner from '../molecules/BannerPartner';
 </script>
 
 <template>
@@ -14,49 +14,49 @@ import PartnerBanner from './PartnerBanner';
         </div>
         <div class="lg:col-span-2">
           <ul role="list" class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:gap-x-8">
-            <PartnerBanner>
+            <BannerPartner>
               <template #name>Rajat Parr, Phelan Farm</template>
               <template #bio>
                 The top tier of our Launching Membership NFT this June comes with a bottle of <span class="font-medium">collector Pinot Noir by
                 <a href="https://phelanfarm.com/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Rajat Parr of Phelan Farm</a></span> in Central Coast CA.
                 Artist <a href="https://www.marleighculver.com/" target="_blank" class="underline underline-offset-1">Marleigh Culver</a> created a bespoke wine label that will serve as the digital NFT and the wine label art. Raj is one of the most famous and revered wine voices in the world who is now growing grapes regeneratively.
               </template>
-            </PartnerBanner>
+            </BannerPartner>
 
-            <PartnerBanner>
+            <BannerPartner>
               <template #name>Juanda</template>
               <template #bio>
                 Our <a href="https://www.instagram.com/juandamazonas/?hl=en" target="_blank" class="underline underline-offset-1" noreferrer noopener>Indigenous Partner is Juanda</a>, a young Indigenous activist in unceded Colombian Amazonas. He and his community are building a restaurant and community center to host Thirsty Thirsty members and celebrate their culture.
               </template>
-            </PartnerBanner>
+            </BannerPartner>
 
-            <PartnerBanner>
+            <BannerPartner>
               <template #name>Assembly / Comedor</template>
               <template #bio>
                 <a href="https://assembly.co/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Assembly Hospitality</a> is a prominent force in the Austin hospitality scene known for their restaurant Comedor and their cocktail bar, Garage. They are known for their relationships with local, small-scale growers around Texas and bringing it all together in world-class architectural environments.
               </template>
-            </PartnerBanner>
+            </BannerPartner>
 
-            <PartnerBanner>
+            <BannerPartner>
               <template #name>Ediciones</template>
               <template #bio>
                 <a href="https://www.ediciones.nyc/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Édiciones</a> is a queer food studio based in NYC. Recognized for food sovereignty work in Brooklyn throughout the pandemic, and for throwing incredible food parties.
               </template>
-            </PartnerBanner>
+            </BannerPartner>
 
-            <PartnerBanner>
+            <BannerPartner>
               <template #name>Id Est Hospitality</template>
               <template #bio>
                 <a href="https://iehospitality.com/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Id Est Hospitality</a> is the restaurant group in Denver and Boulder, Colorado. They have four critically acclaimed restaurants and a mill focused on ancestral grains. They are already involved in Blue Carbon sequestration efforts, and support a major network of small farmers across Colorado. They are also a zero-waste food program also known for fermentation.
               </template>
-            </PartnerBanner>
+            </BannerPartner>
 
-            <PartnerBanner>
+            <BannerPartner>
               <template #name>Two Eighty Project</template>
               <template #bio>
                 <a href="https://www.280project.com/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Two Eighty Project</a> is a winery with extensive sommelier and fine dining backgrounds who has made a significant splash in the wine world as a critical voice for black winemaking in California. They work to create food sovereignty for the hood and have begun farming scholarship opportunities with other well known wineries in Northern California.
               </template>
-            </PartnerBanner>
+            </BannerPartner>
           </ul>
         </div>
       </div>

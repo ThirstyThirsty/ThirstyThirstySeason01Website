@@ -1,5 +1,5 @@
 <script setup>
-import BannerTeam from './BannerTeam';
+import BannerTeam from '../molecules/BannerTeam';
 
 const people = [
   {
