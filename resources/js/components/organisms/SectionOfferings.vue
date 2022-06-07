@@ -46,14 +46,14 @@ const venues = [
     <div class="pt-12 sm:pt-16 lg:pt-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">NFT Tier Breakdown (Utility)</h2>
+          <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">NFT Offerings (Utility)</h2>
         </div>
       </div>
     </div>
     <div class="mt-8 bg-white pb-16 sm:mt-12 sm:pb-20 lg:pb-0">
       <div class="relative">
-        <div class="absolute inset-0 h-4/5 tt-bg-green" />
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="absolute inset-0 h-full tt-bg-green" />
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
           <BannerOfferings
             v-for="venue in venues"
             :key="venue.name"
@@ -63,16 +63,6 @@ const venues = [
             <template #name>{{ venue.name }}</template>
             <template #location>{{ venue.location }}</template>
           </BannerOfferings>
-          <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
-            <div class="flex flex-wrap -m-1 md:-m-2">
-              <div class="flex flex-wrap">
-                <div class="w-full p-1 md:p-2">
-                  <img alt="gallery" class="block object-cover object-center w-full h-full"
-                    src="/images/3042B731-4B9D-4BC0-B61F-6566702A1C69_1_105_c.jpeg">
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -43666,7 +43666,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "text-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl"
-}, "NFT Tier Breakdown (Utility)")])])], -1
+}, "NFT Offerings (Utility)")])])], -1
 /* HOISTED */
 );
 
@@ -43678,17 +43678,14 @@ var _hoisted_4 = {
 };
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "absolute inset-0 h-4/5 tt-bg-green"
+  "class": "absolute inset-0 h-full tt-bg-green"
 }, null, -1
 /* HOISTED */
 );
 
 var _hoisted_6 = {
-  "class": "relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  "class": "relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20"
 };
-
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"container px-5 py-2 mx-auto lg:pt-24 lg:px-32\"><div class=\"flex flex-wrap -m-1 md:-m-2\"><div class=\"flex flex-wrap\"><div class=\"w-full p-1 md:p-2\"><img alt=\"gallery\" class=\"block object-cover object-center w-full h-full\" src=\"/images/3042B731-4B9D-4BC0-B61F-6566702A1C69_1_105_c.jpeg\"></div></div></div></div>", 1);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.venues, function (venue) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BannerOfferings"], {
@@ -43714,7 +43711,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["offering", "examples"]);
   }), 64
   /* STABLE_FRAGMENT */
-  )), _hoisted_7])])])]);
+  ))])])])]);
 }
 
 /***/ }),
