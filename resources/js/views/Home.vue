@@ -14,9 +14,9 @@ import { FOOTER } from '../constants';
   <main class="relative bg-gray-50">
     <SectionHeader class="pt-20 tt-bg-green" />
     <SectionTierBreakdown class="tt-bg-redish" />
-    <SectionArtwork />
     <SectionPartners class="tt-bg-redish" />
     <SectionOfferings class="tt-bg-green" />
+    <SectionArtwork />
     <SectionRoadmap />
     <SectionTeam class="tt-bg-green" />
     <SiteFooter :items="FOOTER" />

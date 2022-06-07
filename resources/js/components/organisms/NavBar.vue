@@ -17,6 +17,7 @@ import {
   CalendarIcon,
   ChartBarIcon,
   SparklesIcon,
+  GiftIcon,
   MenuIcon,
   PhoneIcon,
   PlayIcon,
@@ -58,18 +59,25 @@ const menuItems = [
     to: 'tier'
   },
   {
-    name: 'NFT Artwork',
-    description: 'NFT Artwork',
-    icon: SparklesIcon,
-    href:'#',
-    to: 'artwork'
-  },
-  {
     name: 'Our Partners',
     description: "Our Partners",
     icon: GlobeIcon,
     href:'#',
     to: 'partners'
+  },
+  {
+    name: 'Offerings (Utility)',
+    description: 'Offerings (Utility)',
+    icon: SparklesIcon,
+    href:'#',
+    to: 'offerings'
+  },
+  {
+    name: 'Artwork',
+    description: 'Artwork',
+    icon: SparklesIcon,
+    href:'#',
+    to: 'artwork'
   },
   {
     name: 'Roadmap',
