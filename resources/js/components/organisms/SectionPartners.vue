@@ -38,9 +38,9 @@ import BannerPartner from '../molecules/BannerPartner';
             </BannerPartner>
 
             <BannerPartner>
-              <template #name>Ediciones</template>
+              <template #name>Édiciones</template>
               <template #bio>
-                <a href="https://www.ediciones.nyc/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Édiciones</a> is a queer food studio based in NYC. Recognized for food sovereignty work in Brooklyn throughout the pandemic, and for throwing incredible food parties.
+                <a href="https://www.ediciones.nyc/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Édiciones</a> is a queer food studio based in NYC recognized for food sovereignty work in Brooklyn throughout the pandemic, and for throwing incredible food parties.
               </template>
             </BannerPartner>
 
@@ -54,7 +54,7 @@ import BannerPartner from '../molecules/BannerPartner';
             <BannerPartner>
               <template #name>Two Eighty Project</template>
               <template #bio>
-                <a href="https://www.280project.com/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Two Eighty Project</a> is a winery with extensive sommelier and fine dining backgrounds who has made a significant splash in the wine world as a critical voice for black winemaking in California. They work to create food sovereignty for the hood and have begun farming scholarship opportunities with other well known wineries in Northern California.
+                <a href="https://www.280project.com/" target="_blank" class="underline underline-offset-1" noreferrer noopener>Two Eighty Project</a> is a San Francisco Bay Area winery that has become a critical voice for Black representation in the industry. Chris and Jannea are dedicated to creating food sovereignty for Black communities in the city and farming scholarships with other well known wineries. The two have extensive sommelier and fine dining backgrounds, rounding out their deep passion for wine and access.
               </template>
             </BannerPartner>
           </ul>

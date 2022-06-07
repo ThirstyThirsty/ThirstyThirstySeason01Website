@@ -8,11 +8,11 @@
         <div class="flex flex-wrap w-1/2">
           <div class="p-1 md:p-2">
             <img alt="gallery" class="block object-cover object-center w-full h-full"
-              src="/images/FONDUE_FINAL-96.jpeg">
+              src="/images/THIRSTY_FINAL-12.jpeg">
           </div>
           <div class="w-full p-1 md:p-2">
             <img alt="gallery" class="block object-cover object-center w-full h-full"
-              src="/images/FONDUE_FINAL-110.jpeg">
+              src="/images/THIRSTY_FLOWER_SHOP-115.jpeg">
           </div>
         </div>
         <div class="flex flex-wrap w-1/2">
@@ -22,11 +22,11 @@
           </div>
           <div class="w-1/2 p-1 md:p-2">
             <img alt="gallery" class="block object-cover object-center w-full h-full"
-              src="/images/Thirsty-41.jpeg">
+              src="/images/FONDUE_FINAL-110.jpeg">
           </div>
           <div class="w-1/2 p-1 md:p-2">
             <img alt="gallery" class="block object-cover object-center w-full h-full"
-              src="/images/katiejuneburton_thirsty-22.jpeg">
+              src="/images/20210919_TT_HARVEST_207.jpeg">
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
               <h4 class="text-gray-800 font-semibold text-xl -mt-2"><span class="text-gray-500">April 2022</span> - Cohort 1 begins</h4>
             </div>
             <div class="ml-6 mb-6 pb-6">
-              <p class="text-gray-700 mt-2 mb-4">Each TT Cohort is composed of restaurateurs, chefs, winemakers, and land protectors to be onboarded into web3. These are communities previously excluded from traditional finance that are integral to celebrating our connection to Earth. Each Cohort partner will offer something back to our community - access to their IRL location, unique workshops, or event experiences. Examples include harvest opportunities, tasting an off menu dish, or a digital naturally leavened pizza making class. Each cohort partner will become a part of the Thirsty Thirsty ecosystem and eventually hold Thirsty Thirsty tokens that can unlock governance opportunities and generate new revenue streams.</p>
+              <p class="text-gray-700 mt-2 mb-4">Thirsty Thirsty educates hospitality leaders, farmers, and land protectors about web3 through our Thirsty Thirsty Cohorts. In return, we co-create epic dining experiences that nourish our community members - access to their IRL location, unique workshops, or event experiences. Each cohort partner will become a part of the Thirsty Thirsty ecosystem to co-create and ideate for a brighter future for our communities.</p>
             </div>
           </li>
           <li>
@@ -57,7 +57,7 @@
               <h4 class="text-gray-800 font-semibold text-xl -mt-2"><span class="text-gray-500">August 2022</span> - Special travel NFT release</h4>
             </div>
             <div class="ml-6 mb-6 pb-6">
-              <p class="text-gray-700 mt-2 mb-4">We will drop 15 special, high-end NFTs as a pass to an unforgettable California Harvest Retreat. </p>
+              <p class="text-gray-700 mt-2 mb-4">We will drop ~15 special, high-end NFTs as a pass to an unforgettable California Harvest Retreat.</p>
             </div>
           </li>
           <li>
@@ -66,7 +66,7 @@
               <h4 class="text-gray-800 font-semibold text-xl -mt-2"><span class="text-gray-500">Fall 2022</span> - Our membership network begins</h4>
             </div>
             <div class="ml-6 mb-6 pb-6">
-              <p class="text-gray-700 mt-2 mb-4">We will create a circular economy of Earth love and deliciousness. Every restaurant, winery, and farm in our network is dedicated to Ancestral farming that ensures Earth’s longevity. Each node can become community hubs for learning and dining experiences for our Members. TT Members will become Frens & Fam at locations from top restaurants in New York City to trusted friends and Indigenous elders in the Colombian Amazonas. We will also feature digital workshops for more inclusive and accessible programming with our cohort partners. </p>
+              <p class="text-gray-700 mt-2 mb-4">We will create a circular economy of Earth love and deliciousness. Every restaurant, winery, and farm in our network is dedicated to Ancestral farming that ensures Earth’s longevity. Each node can become community hubs for learning and dining experiences for our Members. TT Members will become XPs (Extraordinary Patrons) at top restaurants and trusted friends in the Colombian Amazonas. We will also feature digital workshops for more inclusive and accessible programming with our cohort partners.</p>
             </div>
           </li>
           <li>

@@ -89,6 +89,9 @@ const { mint } = useBlockchainStore();
             :disabled="isMinting || !canMint"
           >
             <template #title>Tier 2 - "Table"</template>
+            <template #extra>
+              <p class="text-sm">An additional 50 Tier 2 NFTs will be airdropped to Friends & Family.</p>
+            </template>
             <template #availability>{{ MAX_TABLE - numMintedTable }}</template>
             <template #price>{{ isGoldlisted ? PRICE_TABLE_GOLD : PRICE_TABLE }}</template>
           </BannerTier>
