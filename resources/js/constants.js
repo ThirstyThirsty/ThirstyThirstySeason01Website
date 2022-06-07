@@ -1,5 +1,5 @@
 export const MAX_CELLAR = 270;
-export const MAX_TABLE = 518;
+export const MAX_TABLE = 618;
 export const MAX_FRENS = 50;
 
 export const PRICE_CELLAR = 0.4;

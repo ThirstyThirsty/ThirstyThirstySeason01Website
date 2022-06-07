@@ -36,7 +36,6 @@ export const useBlockchainStore = defineStore({
     publicKey: '',
     numMintedCellar: 0,
     numMintedTable: 0,
-    numMintedFrens: 0,
     isGoldlisted: false,
     network: '',
     openModal: null
@@ -108,8 +107,7 @@ export const useBlockchainStore = defineStore({
     async fetchMintedPerTiers() {
       const [cellar, table, tableGold, frens] = await contract.mintedPerTiers();
       this.numMintedCellar = +cellar.toString();
-      this.numMintedTable = +table.toString() + (+tableGold.toString());
-      this.numMintedFrens = +frens.toString();
+      this.numMintedTable = +table.toString() + (+tableGold.toString()) + (+frens.toString());
     },
 
     async mint(tierName) {

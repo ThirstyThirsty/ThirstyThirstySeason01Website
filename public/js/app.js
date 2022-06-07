@@ -44233,7 +44233,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "TIER_TABLE_GOLD": () => (/* binding */ TIER_TABLE_GOLD)
 /* harmony export */ });
 var MAX_CELLAR = 270;
-var MAX_TABLE = 518;
+var MAX_TABLE = 618;
 var MAX_FRENS = 50;
 var PRICE_CELLAR = 0.4;
 var PRICE_TABLE = 0.2;
@@ -44400,7 +44400,6 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
       publicKey: '',
       numMintedCellar: 0,
       numMintedTable: 0,
-      numMintedFrens: 0,
       isGoldlisted: false,
       network: '',
       openModal: null
@@ -44612,10 +44611,9 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 tableGold = _yield$contract$minte2[2];
                 frens = _yield$contract$minte2[3];
                 _this5.numMintedCellar = +cellar.toString();
-                _this5.numMintedTable = +table.toString() + +tableGold.toString();
-                _this5.numMintedFrens = +frens.toString();
+                _this5.numMintedTable = +table.toString() + +tableGold.toString() + +frens.toString();
 
-              case 11:
+              case 10:
               case "end":
                 return _context5.stop();
             }
