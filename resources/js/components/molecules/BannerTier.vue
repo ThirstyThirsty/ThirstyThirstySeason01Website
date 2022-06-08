@@ -87,7 +87,7 @@ const tier = computed(() => {
           :disabled="disabled"
           small
         >
-          Mint
+          Mint starting June 10
         </Button>
       </div>
     </div>

@@ -68,7 +68,7 @@ const { mint } = useBlockchainStore();
             :tier-name="TIER_CELLAR"
             :benefits="tier1"
             :loading="isMinting"
-            :disabled="isMinting || !canMint"
+            :disabled="true"
             terms="/terms"
             class="mb-4"
           >
@@ -86,7 +86,7 @@ const { mint } = useBlockchainStore();
             :benefits="tier2"
             :goldlisted="isGoldlisted"
             :loading="isMinting"
-            :disabled="isMinting || !canMint"
+            :disabled="true"
           >
             <template #title>Tier 2 - "Table"</template>
             <template #extra>

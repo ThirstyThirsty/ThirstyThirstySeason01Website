@@ -20,7 +20,7 @@ const { scrollTo } = useScrollStore();
             primary
             @click="scrollTo('tier')"
           >
-            Mint Membership NFT
+            Mint Membership NFT (from June 10)
           </Button>
         </div>
       </div>
