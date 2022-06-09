@@ -32,7 +32,7 @@ export const useBlockchainStore = defineStore({
     isInitialized: false,
     isReady: false,
     isMinting: false,
-    canMint: true,
+    canMint: false,
     publicKey: '',
     numMintedCellar: 0,
     numMintedTable: 0,
@@ -56,6 +56,7 @@ export const useBlockchainStore = defineStore({
 
       provider = new ethers.providers.Web3Provider(ethereum, 'any');
       signer = provider.getSigner();
+
       contract = new ethers.Contract(CONTRACT_ADDR, Contract.abi, signer);
 
       const { chainId, name } = await provider.getNetwork();
@@ -69,10 +70,12 @@ export const useBlockchainStore = defineStore({
 
       this.isInitialized = true;
       this.publicKey = await this.getAccountPubKey();
+
       if (this.publicKey) {
         await this.checkGoldlisted();
+        await this.fetchMintedPerTiers();
+        this.canMint = true;
       }
-      await this.fetchMintedPerTiers();
 
       this.isReady = true;
     },
@@ -80,6 +83,7 @@ export const useBlockchainStore = defineStore({
     async checkGoldlisted() {
       try {
         const pkey = await signer.getAddress()
+        console.log('pkey', pkey)
         const { data: { goldlisted } } = await axios.get(`list/${pkey}`);
         this.isGoldlisted = !!goldlisted;
       } catch (error) {
@@ -99,6 +103,13 @@ export const useBlockchainStore = defineStore({
       try {
         await provider.send('eth_requestAccounts', []);
         this.publicKey = await this.getAccountPubKey();
+        if (this.publicKey) {
+          await this.checkGoldlisted();
+          await this.fetchMintedPerTiers();
+          this.canMint = true;
+        } else {
+          throw new Error('Failed accessing account public key');
+        }
       } catch (error) {
         console.error(error);
       }

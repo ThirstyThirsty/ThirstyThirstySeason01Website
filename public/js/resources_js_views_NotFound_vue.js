@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkTTWebS01"] = self["webpackChunkTTWebS01"] || []).push([["resources_js_views_NotFound_vue"],{
+(self["webpackChunkthirstythirsty_nft_mintsite_01"] = self["webpackChunkthirstythirsty_nft_mintsite_01"] || []).push([["resources_js_views_NotFound_vue"],{
 
 /***/ "./resources/js/views/NotFound.vue":
 /*!*****************************************!*\

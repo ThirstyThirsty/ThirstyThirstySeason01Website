@@ -21,7 +21,7 @@ export const CONTRACT_ADDR = (() => {
     // Mainnet (homestead)
     case 'thirstythirsty-nft.herokuapp.com':
     case 'thirstythirsty.xyz':
-      return '';
+      return '0x9a1a77CF312DD43D6Da93c5Ed5D2b4ef592e8962';
 
     // Rinkeby (testnet)
     case 'thirstythirsty-nft-staging.herokuapp.com':

@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkTTWebS01"] = self["webpackChunkTTWebS01"] || []).push([["resources_js_views_Terms_vue"],{
+(self["webpackChunkthirstythirsty_nft_mintsite_01"] = self["webpackChunkthirstythirsty_nft_mintsite_01"] || []).push([["resources_js_views_Terms_vue"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/views/Terms.vue?vue&type=template&id=19695710":
 /*!**********************************************************************************************************************************************************************************************************************************************************************!*\

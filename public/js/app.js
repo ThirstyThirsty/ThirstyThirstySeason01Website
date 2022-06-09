@@ -41803,7 +41803,7 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
     var attrsNames = Object.keys((0,vue__WEBPACK_IMPORTED_MODULE_0__.useAttrs)());
     var style = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
-      var css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md cursor-pointer disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed ';
+      var css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md cursor-pointer disabled:border-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed ';
 
       if (attrsNames.includes('primary')) {
         css += 'text-white tt-bg-purple hover:bg-purple-700 ';
@@ -44256,7 +44256,7 @@ var CONTRACT_ADDR = function () {
     // Mainnet (homestead)
     case 'thirstythirsty-nft.herokuapp.com':
     case 'thirstythirsty.xyz':
-      return '';
+      return '0x9a1a77CF312DD43D6Da93c5Ed5D2b4ef592e8962';
     // Rinkeby (testnet)
 
     case 'thirstythirsty-nft-staging.herokuapp.com':
@@ -44401,7 +44401,7 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
       isInitialized: false,
       isReady: false,
       isMinting: false,
-      canMint: true,
+      canMint: false,
       publicKey: '',
       numMintedCellar: 0,
       numMintedTable: 0,
@@ -44459,7 +44459,7 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 _this.publicKey = _context.sent;
 
                 if (!_this.publicKey) {
-                  _context.next = 20;
+                  _context.next = 23;
                   break;
                 }
 
@@ -44471,9 +44471,12 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 return _this.fetchMintedPerTiers();
 
               case 22:
-                _this.isReady = true;
+                _this.canMint = true;
 
               case 23:
+                _this.isReady = true;
+
+              case 24:
               case "end":
                 return _context.stop();
             }
@@ -44497,28 +44500,29 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
 
               case 3:
                 pkey = _context2.sent;
-                _context2.next = 6;
+                console.log('pkey', pkey);
+                _context2.next = 7;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("list/".concat(pkey));
 
-              case 6:
+              case 7:
                 _yield$axios$get = _context2.sent;
                 goldlisted = _yield$axios$get.data.goldlisted;
                 _this2.isGoldlisted = !!goldlisted;
-                _context2.next = 14;
+                _context2.next = 15;
                 break;
 
-              case 11:
-                _context2.prev = 11;
+              case 12:
+                _context2.prev = 12;
                 _context2.t0 = _context2["catch"](0);
 
                 _this2.openModal('Digital wallet needed', 'Please install the MetaMask wallet extension on your browser to proceed', '⚠️', 'bg-red-100');
 
-              case 14:
+              case 15:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 11]]);
+        }, _callee2, null, [[0, 12]]);
       }))();
     },
     getAccountPubKey: function getAccountPubKey() {
@@ -44579,20 +44583,42 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
 
               case 7:
                 _this4.publicKey = _context4.sent;
+
+                if (!_this4.publicKey) {
+                  _context4.next = 16;
+                  break;
+                }
+
+                _context4.next = 11;
+                return _this4.checkGoldlisted();
+
+              case 11:
                 _context4.next = 13;
+                return _this4.fetchMintedPerTiers();
+
+              case 13:
+                _this4.canMint = true;
+                _context4.next = 17;
                 break;
 
-              case 10:
-                _context4.prev = 10;
+              case 16:
+                throw new Error('Failed accessing account public key');
+
+              case 17:
+                _context4.next = 22;
+                break;
+
+              case 19:
+                _context4.prev = 19;
                 _context4.t0 = _context4["catch"](2);
                 console.error(_context4.t0);
 
-              case 13:
+              case 22:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, null, [[2, 10]]);
+        }, _callee4, null, [[2, 19]]);
       }))();
     },
     fetchMintedPerTiers: function fetchMintedPerTiers() {
@@ -64365,7 +64391,7 @@ module.exports = JSON.parse('{"_format":"hh-sol-artifact-1","contractName":"Thir
 /******/ 	/* webpack/runtime/load script */
 /******/ 	(() => {
 /******/ 		var inProgress = {};
-/******/ 		var dataWebpackPrefix = "TTWebS01:";
+/******/ 		var dataWebpackPrefix = "thirstythirsty-nft-mintsite-01:";
 /******/ 		// loadScript function to load a script via script tag
 /******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
 /******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
@@ -64519,7 +64545,7 @@ module.exports = JSON.parse('{"_format":"hh-sol-artifact-1","contractName":"Thir
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkTTWebS01"] = self["webpackChunkTTWebS01"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkthirstythirsty_nft_mintsite_01"] = self["webpackChunkthirstythirsty_nft_mintsite_01"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
