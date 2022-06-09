@@ -44249,7 +44249,7 @@ var TIER_TABLE_GOLD = 'tableGold';
 var TIER_FRENS = 'frens';
 var ERR_MSG_FUND = 'You have insufficient funds to mint.';
 var ERR_MSG_MINT = "Seems like you've already minted the maximum number per wallet.";
-var ERR_MSG_CLAIMED = "Seems like you've already minted an NFT!";
+var ERR_MSG_CLAIMED = "Seems like you've already minted a goldlisted NFT! Try minting again at the regular price.";
 var ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...';
 var CONTRACT_ADDR = function () {
   switch (window.location.hostname) {
@@ -44500,29 +44500,28 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
 
               case 3:
                 pkey = _context2.sent;
-                console.log('pkey', pkey);
-                _context2.next = 7;
+                _context2.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default().get("list/".concat(pkey));
 
-              case 7:
+              case 6:
                 _yield$axios$get = _context2.sent;
                 goldlisted = _yield$axios$get.data.goldlisted;
                 _this2.isGoldlisted = !!goldlisted;
-                _context2.next = 15;
+                _context2.next = 14;
                 break;
 
-              case 12:
-                _context2.prev = 12;
+              case 11:
+                _context2.prev = 11;
                 _context2.t0 = _context2["catch"](0);
 
                 _this2.openModal('Digital wallet needed', 'Please install the MetaMask wallet extension on your browser to proceed', '⚠️', 'bg-red-100');
 
-              case 15:
+              case 14:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 12]]);
+        }, _callee2, null, [[0, 11]]);
       }))();
     },
     getAccountPubKey: function getAccountPubKey() {

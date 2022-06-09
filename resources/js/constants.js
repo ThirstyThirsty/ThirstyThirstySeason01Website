@@ -13,7 +13,7 @@ export const TIER_FRENS = 'frens';
 
 export const ERR_MSG_FUND = 'You have insufficient funds to mint.';
 export const ERR_MSG_MINT = "Seems like you've already minted the maximum number per wallet.";
-export const ERR_MSG_CLAIMED = "Seems like you've already minted an NFT!";
+export const ERR_MSG_CLAIMED = "Seems like you've already minted a goldlisted NFT! Try minting again at the regular price.";
 export const ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...';
 
 export const CONTRACT_ADDR = (() => {

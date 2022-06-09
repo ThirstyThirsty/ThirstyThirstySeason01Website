@@ -83,7 +83,6 @@ export const useBlockchainStore = defineStore({
     async checkGoldlisted() {
       try {
         const pkey = await signer.getAddress()
-        console.log('pkey', pkey)
         const { data: { goldlisted } } = await axios.get(`list/${pkey}`);
         this.isGoldlisted = !!goldlisted;
       } catch (error) {
