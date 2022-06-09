@@ -41803,7 +41803,7 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
     var attrsNames = Object.keys((0,vue__WEBPACK_IMPORTED_MODULE_0__.useAttrs)());
     var style = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
-      var css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md cursor-pointer disabled:border-gray-300 disabled:text-gray-900 disabled:cursor-not-allowed ';
+      var css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md cursor-pointer disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed ';
 
       if (attrsNames.includes('primary')) {
         css += 'text-white tt-bg-purple hover:bg-purple-700 ';
@@ -43056,7 +43056,7 @@ var _hoisted_17 = {
   "class": "mt-6"
 };
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Mint starting June 10 ");
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Mint ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "title")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "availability"), _hoisted_6]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "extra")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_9, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.benefits, function (feature) {
@@ -43618,7 +43618,7 @@ var _hoisted_6 = {
   "class": "mt-10 sm:flex sm:justify-center"
 };
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Mint Membership NFT (from June 10) ");
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Mint Membership NFT ");
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full"
@@ -44070,7 +44070,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "tier-name": $setup.TIER_CELLAR,
     benefits: $setup.tier1,
     loading: $setup.isMinting,
-    disabled: true,
+    disabled: $setup.isMinting || !$setup.canMint,
     terms: "/terms",
     "class": "mb-4"
   }, {
@@ -44095,13 +44095,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["onMint", "tier-name", "loading"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BannerTier"], {
+  , ["onMint", "tier-name", "loading", "disabled"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BannerTier"], {
     onMint: $setup.mint,
     "tier-name": $setup.TIER_TABLE,
     benefits: $setup.tier2,
     goldlisted: $setup.isGoldlisted,
     loading: $setup.isMinting,
-    disabled: true
+    disabled: $setup.isMinting || !$setup.canMint
   }, {
     title: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_9];
@@ -44124,7 +44124,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["onMint", "tier-name", "goldlisted", "loading"]), _hoisted_11])])])]);
+  , ["onMint", "tier-name", "goldlisted", "loading", "disabled"]), _hoisted_11])])])]);
 }
 
 /***/ }),

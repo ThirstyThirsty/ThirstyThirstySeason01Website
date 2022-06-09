@@ -15,7 +15,7 @@ const props = defineProps({
 const attrsNames = Object.keys(useAttrs());
 
 const style = computed(() => {
-  let css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md cursor-pointer disabled:border-gray-300 disabled:text-gray-900 disabled:cursor-not-allowed ';
+  let css = 'w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md cursor-pointer disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed ';
 
   if (attrsNames.includes('primary')) {
     css += 'text-white tt-bg-purple hover:bg-purple-700 ';
