@@ -44468,7 +44468,7 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 _this.publicKey = _context.sent;
 
                 if (!_this.publicKey) {
-                  _context.next = 23;
+                  _context.next = 22;
                   break;
                 }
 
@@ -44480,12 +44480,9 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 return _this.fetchMintedPerTiers();
 
               case 22:
-                _this.canMint = true;
-
-              case 23:
                 _this.isReady = true;
 
-              case 24:
+              case 23:
               case "end":
                 return _context.stop();
             }
@@ -44593,7 +44590,7 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 _this4.publicKey = _context4.sent;
 
                 if (!_this4.publicKey) {
-                  _context4.next = 16;
+                  _context4.next = 15;
                   break;
                 }
 
@@ -44605,28 +44602,27 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 return _this4.fetchMintedPerTiers();
 
               case 13:
-                _this4.canMint = true;
-                _context4.next = 17;
+                _context4.next = 16;
                 break;
 
-              case 16:
+              case 15:
                 throw new Error('Failed accessing account public key');
 
-              case 17:
-                _context4.next = 22;
+              case 16:
+                _context4.next = 21;
                 break;
 
-              case 19:
-                _context4.prev = 19;
+              case 18:
+                _context4.prev = 18;
                 _context4.t0 = _context4["catch"](2);
                 console.error(_context4.t0);
 
-              case 22:
+              case 21:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, null, [[2, 19]]);
+        }, _callee4, null, [[2, 18]]);
       }))();
     },
     fetchMintedPerTiers: function fetchMintedPerTiers() {
