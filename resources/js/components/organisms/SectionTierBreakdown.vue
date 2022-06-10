@@ -43,7 +43,7 @@ const tier2 = [
   'Future TT event access/member benefits for NFT holders',
 ];
 
-const { isMinting, canMint } = storeToRefs(useBlockchainStore());
+const { isMinting, canMint, isWalletConnected } = storeToRefs(useBlockchainStore());
 const { mint } = useBlockchainStore();
 </script>
 
@@ -78,6 +78,7 @@ const { mint } = useBlockchainStore();
             </template>
             <template #availability>{{ MAX_CELLAR - numMintedCellar }}</template>
             <template #price>{{ PRICE_CELLAR }}</template>
+            <template #btnLabel>{{ isWalletConnected ? 'Mint' : 'Please connect wallet to mint' }}</template>
           </BannerTier>
 
           <BannerTier
@@ -94,6 +95,7 @@ const { mint } = useBlockchainStore();
             </template>
             <template #availability>{{ MAX_TABLE - numMintedTable }}</template>
             <template #price>{{ isGoldlisted ? PRICE_TABLE_GOLD : PRICE_TABLE }}</template>
+            <template #btnLabel>{{ isWalletConnected ? 'Mint' : 'Please connect wallet to mint' }}</template>
           </BannerTier>
 
           <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">

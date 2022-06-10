@@ -87,7 +87,7 @@ const tier = computed(() => {
           :disabled="disabled"
           small
         >
-          Mint
+          <slot name="btnLabel" />
         </Button>
       </div>
     </div>

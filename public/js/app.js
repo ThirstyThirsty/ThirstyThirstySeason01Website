@@ -42585,7 +42585,8 @@ __webpack_require__.r(__webpack_exports__);
 
     var _storeToRefs2 = (0,pinia__WEBPACK_IMPORTED_MODULE_4__.storeToRefs)((0,_stores_blockchain__WEBPACK_IMPORTED_MODULE_2__.useBlockchainStore)()),
         isMinting = _storeToRefs2.isMinting,
-        canMint = _storeToRefs2.canMint;
+        canMint = _storeToRefs2.canMint,
+        isWalletConnected = _storeToRefs2.isWalletConnected;
 
     var _useBlockchainStore = (0,_stores_blockchain__WEBPACK_IMPORTED_MODULE_2__.useBlockchainStore)(),
         mint = _useBlockchainStore.mint;
@@ -42598,6 +42599,7 @@ __webpack_require__.r(__webpack_exports__);
       tier2: tier2,
       isMinting: isMinting,
       canMint: canMint,
+      isWalletConnected: isWalletConnected,
       mint: mint,
       BannerTier: _molecules_BannerTier__WEBPACK_IMPORTED_MODULE_0__["default"],
       storeToRefs: pinia__WEBPACK_IMPORTED_MODULE_4__.storeToRefs,
@@ -43055,9 +43057,6 @@ var _hoisted_16 = ["href"];
 var _hoisted_17 = {
   "class": "mt-6"
 };
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Mint ");
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "title")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "availability"), _hoisted_6]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "extra")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_9, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.benefits, function (feature) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
@@ -43089,10 +43088,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     small: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_18];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "btnLabel")];
     }),
-    _: 1
-    /* STABLE */
+    _: 3
+    /* FORWARDED */
 
   }, 8
   /* PROPS */
@@ -44090,6 +44089,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       )];
     }),
+    btnLabel: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.isWalletConnected ? 'Mint' : 'Please connect wallet to mint'), 1
+      /* TEXT */
+      )];
+    }),
     _: 1
     /* STABLE */
 
@@ -44116,6 +44120,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     price: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.isGoldlisted ? $setup.PRICE_TABLE_GOLD : $setup.PRICE_TABLE), 1
+      /* TEXT */
+      )];
+    }),
+    btnLabel: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.isWalletConnected ? 'Mint' : 'Please connect wallet to mint'), 1
       /* TEXT */
       )];
     }),
