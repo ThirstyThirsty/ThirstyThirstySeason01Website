@@ -44069,7 +44069,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "tier-name": $setup.TIER_CELLAR,
     benefits: $setup.tier1,
     loading: $setup.isMinting,
-    disabled: $setup.isMinting || !$setup.canMint,
+    disabled: $setup.isMinting,
     terms: "/terms",
     "class": "mb-4"
   }, {
@@ -44105,7 +44105,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     benefits: $setup.tier2,
     goldlisted: $setup.isGoldlisted,
     loading: $setup.isMinting,
-    disabled: $setup.isMinting || !$setup.canMint
+    disabled: $setup.isMinting
   }, {
     title: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_9];
