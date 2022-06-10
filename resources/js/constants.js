@@ -17,23 +17,28 @@ export const ERR_MSG_CLAIMED = "Seems like you've already minted a goldlisted NF
 export const ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...';
 
 export const CONTRACT_ADDR = (() => {
-  switch (window.location.hostname) {
-    // Mainnet (homestead)
-    case 'thirstythirsty-nft.herokuapp.com':
-    case 'thirstythirsty.xyz':
-      return '0x9a1a77CF312DD43D6Da93c5Ed5D2b4ef592e8962';
-
-    // Rinkeby (testnet)
-    case 'thirstythirsty-nft-staging.herokuapp.com':
-      return '0x68c0D7CdC7c5Bc028C66Ff933524F30C736fC8EC';
-
-    // Localhost (development)
-    case 'localhost':
-      return '0x5FbDB2315678afecb367f032d93F642f64180aa3';
-
-    default:
-      return '';
+   // Mainnet (homestead)
+  if (
+    window.location.hostname.includes('thirstythirsty-nft.herokuapp.com') ||
+    window.location.hostname.includes('thirstythirsty.xyz')
+  ) {
+    return '0x9a1a77CF312DD43D6Da93c5Ed5D2b4ef592e8962';
   }
+
+  // Rinkeby (testnet)
+  if (
+    window.location.hostname.includes('thirstythirsty-nft-staging.herokuapp.com')
+  ) {
+    return '0x68c0D7CdC7c5Bc028C66Ff933524F30C736fC8EC';
+  }
+
+  if (
+    window.location.hostname.includes('localhost')
+  ) {
+    return  '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+  }
+
+  return '0x9a1a77CF312DD43D6Da93c5Ed5D2b4ef592e8962';
 })();
 
 export const FOOTER = [

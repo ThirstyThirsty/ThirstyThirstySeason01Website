@@ -74,7 +74,7 @@ export const useBlockchainStore = defineStore({
       if (this.publicKey) {
         await this.checkGoldlisted();
         await this.fetchMintedPerTiers();
-        // this.canMint = true;
+        this.canMint = true;
       }
 
       this.isReady = true;
@@ -105,7 +105,7 @@ export const useBlockchainStore = defineStore({
         if (this.publicKey) {
           await this.checkGoldlisted();
           await this.fetchMintedPerTiers();
-          // this.canMint = true;
+          this.canMint = true;
         } else {
           throw new Error('Failed accessing account public key');
         }

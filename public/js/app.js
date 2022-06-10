@@ -44069,7 +44069,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "tier-name": $setup.TIER_CELLAR,
     benefits: $setup.tier1,
     loading: $setup.isMinting,
-    disabled: $setup.isMinting,
+    disabled: $setup.isMinting || !$setup.canMint,
     terms: "/terms",
     "class": "mb-4"
   }, {
@@ -44105,7 +44105,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     benefits: $setup.tier2,
     goldlisted: $setup.isGoldlisted,
     loading: $setup.isMinting,
-    disabled: $setup.isMinting
+    disabled: $setup.isMinting || !$setup.canMint
   }, {
     title: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_9];
@@ -44261,23 +44261,21 @@ var ERR_MSG_MINT = "Seems like you've already minted the maximum number per wall
 var ERR_MSG_CLAIMED = "Seems like you've already minted a goldlisted NFT! Try minting again at the regular price.";
 var ERR_MSG_UNKNOWN = 'Oops! An unknown error occured. Please try again later...';
 var CONTRACT_ADDR = function () {
-  switch (window.location.hostname) {
-    // Mainnet (homestead)
-    case 'thirstythirsty-nft.herokuapp.com':
-    case 'thirstythirsty.xyz':
-      return '0x9a1a77CF312DD43D6Da93c5Ed5D2b4ef592e8962';
-    // Rinkeby (testnet)
+  // Mainnet (homestead)
+  if (window.location.hostname.includes('thirstythirsty-nft.herokuapp.com') || window.location.hostname.includes('thirstythirsty.xyz')) {
+    return '0x9a1a77CF312DD43D6Da93c5Ed5D2b4ef592e8962';
+  } // Rinkeby (testnet)
 
-    case 'thirstythirsty-nft-staging.herokuapp.com':
-      return '0x68c0D7CdC7c5Bc028C66Ff933524F30C736fC8EC';
-    // Localhost (development)
 
-    case 'localhost':
-      return '0x5FbDB2315678afecb367f032d93F642f64180aa3';
-
-    default:
-      return '';
+  if (window.location.hostname.includes('thirstythirsty-nft-staging.herokuapp.com')) {
+    return '0x68c0D7CdC7c5Bc028C66Ff933524F30C736fC8EC';
   }
+
+  if (window.location.hostname.includes('localhost')) {
+    return '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+  }
+
+  return '0x9a1a77CF312DD43D6Da93c5Ed5D2b4ef592e8962';
 }();
 var FOOTER = [{
   name: 'Discord',
@@ -44468,7 +44466,7 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 _this.publicKey = _context.sent;
 
                 if (!_this.publicKey) {
-                  _context.next = 22;
+                  _context.next = 23;
                   break;
                 }
 
@@ -44480,9 +44478,12 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 return _this.fetchMintedPerTiers();
 
               case 22:
-                _this.isReady = true;
+                _this.canMint = true;
 
               case 23:
+                _this.isReady = true;
+
+              case 24:
               case "end":
                 return _context.stop();
             }
@@ -44590,7 +44591,7 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 _this4.publicKey = _context4.sent;
 
                 if (!_this4.publicKey) {
-                  _context4.next = 15;
+                  _context4.next = 16;
                   break;
                 }
 
@@ -44602,27 +44603,28 @@ var useBlockchainStore = (0,pinia__WEBPACK_IMPORTED_MODULE_5__.defineStore)({
                 return _this4.fetchMintedPerTiers();
 
               case 13:
-                _context4.next = 16;
+                _this4.canMint = true;
+                _context4.next = 17;
                 break;
-
-              case 15:
-                throw new Error('Failed accessing account public key');
 
               case 16:
-                _context4.next = 21;
+                throw new Error('Failed accessing account public key');
+
+              case 17:
+                _context4.next = 22;
                 break;
 
-              case 18:
-                _context4.prev = 18;
+              case 19:
+                _context4.prev = 19;
                 _context4.t0 = _context4["catch"](2);
                 console.error(_context4.t0);
 
-              case 21:
+              case 22:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, null, [[2, 18]]);
+        }, _callee4, null, [[2, 19]]);
       }))();
     },
     fetchMintedPerTiers: function fetchMintedPerTiers() {

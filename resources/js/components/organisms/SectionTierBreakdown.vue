@@ -42,6 +42,7 @@ const tier2 = [
   'First access to TT travel experiences (ex: <em>Harvest Experience, Ceremony in Amazonas</em>)',
   'Future TT event access/member benefits for NFT holders',
 ];
+
 const { isMinting, canMint, isWalletConnected } = storeToRefs(useBlockchainStore());
 const { mint } = useBlockchainStore();
 </script>
@@ -67,7 +68,7 @@ const { mint } = useBlockchainStore();
             :tier-name="TIER_CELLAR"
             :benefits="tier1"
             :loading="isMinting"
-            :disabled="isMinting"
+            :disabled="isMinting || !canMint"
             terms="/terms"
             class="mb-4"
           >
@@ -86,7 +87,7 @@ const { mint } = useBlockchainStore();
             :benefits="tier2"
             :goldlisted="isGoldlisted"
             :loading="isMinting"
-            :disabled="isMinting"
+            :disabled="isMinting || !canMint"
           >
             <template #title>Tier 2 - "Table"</template>
             <template #extra>
