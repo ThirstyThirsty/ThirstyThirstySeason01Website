@@ -109,7 +109,7 @@ const attemptConnect = async () => {
   <Popover class="fixed w-full z-10 bg-white shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-        <div class="flex justify-start lg:w-0 lg:flex-1">
+        <div class="justify-start lg:w-0 lg:flex-1 hidden lg:flex">
           <a href="/">
             <span class="sr-only">Thirsty Thirsty</span>
             <img class="h-10 w-auto sm:h-14" src="/images/ThirstyThirsty_Logo_Circle-C.png" alt="Thirsty Thirsty Circular Logo" />
@@ -140,7 +140,7 @@ const attemptConnect = async () => {
             Back to mint site
           </a>
         </PopoverGroup>
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0" v-if="isFullNav">
+        <div class="md:flex items-center justify-end md:flex-1 lg:w-0">
           <Button
             v-if="isReady"
             @click.prevent="attemptConnect"
